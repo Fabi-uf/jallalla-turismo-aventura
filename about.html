@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre Nosotros - Jallalla Turismo Aventura</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <ul>
+      <li><a href="index.html" id="navInicio">Inicio</a></li>
+      <li><a href="about.html" id="navAbout">Sobre Nosotros</a></li>
+      <li><a href="activities.html" id="navActivities">Actividades</a></li>
+      <li><a href="gallery.html" id="navGallery">Galería</a></li>
+      <li><a href="reviews.html" id="navReviews">Reseñas</a></li>
+      <li><a href="contact.html" id="navContact">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <div class="language-switch">
+    <select id="language">
+      <option value="es">ES</option>
+      <option value="en">EN</option>
+      <option value="fr">FR</option>
+      <option value="pt">PT</option>
+      <option value="de">DE</option>
+    </select>
+  </div>
+</header>
+
+<section class="about-page">
+  <h1>
+    <i class="fa-solid fa-people-group"></i>
+    Sobre Nosotros
+  </h1>
+
+  <div class="about-hero">
+    <img src="img/iquique.jpeg" alt="Equipo Jallalla Turismo Aventura">
+
+    <div class="about-hero-text">
+      <p>En Jallalla Turismo Aventura nos apasiona brindar experiencias únicas en Iquique y sus alrededores. Nuestro equipo está formado por guías expertos en deportes de aventura y actividades al aire libre.</p>
+      <p>Nos preocupamos por la seguridad, la diversión y la conexión con la naturaleza, ofreciendo experiencias memorables para toda la familia.</p>
+      <p>Desde sandboard en el Cerro Dragón hasta parapente sobre la ciudad, cada actividad está diseñada para que disfrutes al máximo de la aventura y la belleza de nuestra región.</p>
+    </div>
+  </div>
+
+  <div class="why about-why">
+    <h2>
+      <i class="fa-solid fa-circle-check"></i>
+      ¿Por qué elegir Jallalla?
+    </h2>
+
+    <ul class="porque">
+      <li><i class="fa-solid fa-check"></i> Guías locales con experiencia real</li>
+      <li><i class="fa-solid fa-check"></i> Actividades seguras y bien organizadas</li>
+      <li><i class="fa-solid fa-check"></i> Atención cercana y personalizada</li>
+      <li><i class="fa-solid fa-check"></i> Iquique desde otra perspectiva</li>
+    </ul>
+
+    <blockquote class="manifiesto">
+      “No vendemos tours, creamos recuerdos que se quedan contigo.”
+    </blockquote>
+  </div>
+
+  <div class="about-video">
+    <video autoplay loop muted playsinline poster="img/iquique.jpeg">
+      <source src="videos/videoloop.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="mv">
+    <div class="mv-card">
+      <h3><i class="fa-solid fa-bullseye"></i> Misión</h3>
+      <p>Entregar experiencias de aventura seguras y auténticas en Iquique, conectando a las personas con la naturaleza y la cultura local mediante un servicio cercano y profesional.</p>
+    </div>
+
+    <div class="mv-card">
+      <h3><i class="fa-solid fa-mountain-sun"></i> Visión</h3>
+      <p>Ser la alternativa referente de turismo aventura en la región de Tarapacá, reconocida por seguridad, calidad, calidez humana y experiencias inolvidables.</p>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-num" data-count="1200">0</span>
+      <span>Clientes satisfechos</span>
+    </div>
+
+    <div class="stat">
+      <span class="stat-num" data-count="8">0</span>
+      <span>Miembros activos</span>
+    </div>
+
+    <div class="stat">
+      <span class="stat-num" data-count="4.9">0</span>
+      <span>Valoración promedio</span>
+    </div>
+  </div>
+
+  <div class="cta-mini">
+    <p>¿List@ para vivir la aventura?</p>
+
+    <a href="https://wa.me/56930887075" target="_blank" rel="noopener">
+      <i class="fa-brands fa-whatsapp"></i>
+      Contáctanos
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <p id="footerText">&copy; 2026 Jallalla Turismo Aventura - Iquique, Chile</p>
+
+    <div class="socials">
+      <a href="https://www.facebook.com/share/1BLBdyu36v/" target="_blank" rel="noopener" aria-label="Facebook">
+        <i class="fab fa-facebook fa-2x"></i>
+      </a>
+
+      <a href="https://www.tiktok.com/@jallalla.turismo?_t=ZM-8zD8ZmTbg0e&_r=1" target="_blank" rel="noopener" aria-label="TikTok">
+        <i class="fab fa-tiktok fa-2x"></i>
+      </a>
+
+      <a href="https://www.instagram.com/las_aventuras_del_donoso?igsh=MW1kbmYxOTR1dTZtMw==" target="_blank" rel="noopener" aria-label="Instagram">
+        <i class="fab fa-instagram fa-2x"></i>
+      </a>
+
+      <a href="https://wa.me/56930887075" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp fa-2x"></i>
+      </a>
+    </div>
+
+    <p class="firma" id="footerFirma">Sitio desarrollado por Fabi</p>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("navAbout")?.classList.add("active");
+
+    const stats = document.querySelectorAll(".stat-num");
+    if (!stats.length) return;
+
+    const animateCount = (el) => {
+      const target = parseFloat(el.dataset.count);
+      const isDecimal = String(el.dataset.count).includes(".");
+      const duration = 900;
+      const start = performance.now();
+
+      const step = (t) => {
+        const p = Math.min((t - start) / duration, 1);
+        const current = target * p;
+        el.textContent = isDecimal ? current.toFixed(1) : Math.floor(current).toString();
+
+        if (p < 1) requestAnimationFrame(step);
+      };
+
+      requestAnimationFrame(step);
+    };
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          animateCount(e.target);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.35 });
+
+    stats.forEach((s) => io.observe(s));
+  });
+</script>
+
+<script src="main.js"></script>
+
+</body>
+</html>

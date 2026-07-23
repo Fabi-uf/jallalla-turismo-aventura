@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actividades - Jallalla Turismo Aventura</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <ul>
+      <li><a href="index.html" id="navInicio">Inicio</a></li>
+      <li><a href="about.html" id="navAbout">Sobre Nosotros</a></li>
+      <li><a href="activities.html" id="navActivities">Actividades</a></li>
+      <li><a href="gallery.html" id="navGallery">Galería</a></li>
+      <li><a href="reviews.html" id="navReviews" data-i18n="common.nav.reviews">Reseñas</a></li>
+      <li><a href="contact.html" id="navContact">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <div class="language-switch">
+    <select id="language">
+      <option value="es">ES</option>
+      <option value="en">EN</option>
+      <option value="fr">FR</option>
+      <option value="pt">PT</option>
+      <option value="de">DE</option>
+    </select>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1 id="title">
+      <i class="fa-solid fa-mountain-sun"></i>
+      Nuestras Actividades
+    </h1>
+
+    <p id="intro">
+      Aventura segura y entretenida en Iquique. Elige tu experiencia y reserva por WhatsApp.
+    </p>
+
+    <div class="hero-badges">
+      <span class="badge"><i class="fa-solid fa-shield-heart"></i> Seguridad primero</span>
+      <span class="badge"><i class="fa-solid fa-location-dot"></i> Iquique & alrededores</span>
+      <span class="badge"><i class="fa-solid fa-star"></i> Experiencias memorables</span>
+    </div>
+  </div>
+</section>
+
+<section class="act-wrap">
+  <div class="cards" id="cards">
+
+    <article class="card">
+      <div class="thumb">
+        <img src="img/sandboard.jpeg" alt="Sandboard en el Cerro Dragón, Iquique" loading="lazy">
+      </div>
+
+      <div class="overlay"></div>
+
+      <div class="meta">
+        <span class="m"><i class="fa-regular fa-clock"></i> 2,5 h</span>
+        <span class="m"><i class="fa-solid fa-location-dot"></i> Cerro Dragón</span>
+        <span class="m"><i class="fa-solid fa-chart-simple"></i> Nivel: Fácil</span>
+      </div>
+
+      <div class="cta">
+        <a class="btn btn-primary whatsapp" data-title="Sandboard Cerro Dragón">
+          Reservar <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a class="btn btn-ghost" href="contact.html">Más info</a>
+      </div>
+
+      <div class="body">
+        <div>
+          <h3 class="title">Sandboard en el Cerro Dragón</h3>
+          <p class="desc">Deslízate por el icónico Cerro Dragón con instructores. Incluye tabla, casco y fotos básicas.</p>
+          <div class="price">Desde $25.000 CLP</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="thumb">
+        <img src="img/parapente.jpeg" alt="Parapente biplaza sobre Iquique" loading="lazy">
+      </div>
+
+      <div class="overlay"></div>
+
+      <div class="meta">
+        <span class="m"><i class="fa-regular fa-clock"></i> 1,5 h</span>
+        <span class="m"><i class="fa-solid fa-location-dot"></i> Costa de Iquique</span>
+        <span class="m"><i class="fa-solid fa-chart-simple"></i> Nivel: Medio</span>
+      </div>
+
+      <div class="cta">
+        <a class="btn btn-primary whatsapp" data-title="Parapente biplaza">
+          Reservar <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a class="btn btn-ghost" href="contact.html">Más info</a>
+      </div>
+
+      <div class="body">
+        <div>
+          <h3 class="title">Parapente biplaza</h3>
+          <p class="desc">Vuela sobre Iquique con pilotos certificados. Vuelo 20–30 min, fotos incluidas.</p>
+          <div class="price">Desde $70.000 CLP</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="thumb">
+        <img src="img/buseo.jpeg" alt="Buceo y snorkel en Iquique" loading="lazy">
+      </div>
+
+      <div class="overlay"></div>
+
+      <div class="meta">
+        <span class="m"><i class="fa-regular fa-clock"></i> 3 h</span>
+        <span class="m"><i class="fa-solid fa-location-dot"></i> Playas de Iquique</span>
+        <span class="m"><i class="fa-solid fa-chart-simple"></i> Nivel: Fácil</span>
+      </div>
+
+      <div class="cta">
+        <a class="btn btn-primary whatsapp" data-title="Buceo y Snorkel">
+          Reservar <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a class="btn btn-ghost" href="contact.html">Más info</a>
+      </div>
+
+      <div class="body">
+        <div>
+          <h3 class="title">Buceo y Snorkel</h3>
+          <p class="desc">Explora la vida marina de Iquique. Equipo completo y guía certificado.</p>
+          <div class="price">Desde $45.000 CLP</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="thumb">
+        <img src="img/escalar.jpeg" alt="Rappel y Trekking en quebradas" loading="lazy">
+      </div>
+
+      <div class="overlay"></div>
+
+      <div class="meta">
+        <span class="m"><i class="fa-regular fa-clock"></i> 4 h</span>
+        <span class="m"><i class="fa-solid fa-location-dot"></i> Quebradas cercanas</span>
+        <span class="m"><i class="fa-solid fa-chart-simple"></i> Nivel: Medio</span>
+      </div>
+
+      <div class="cta">
+        <a class="btn btn-primary whatsapp" data-title="Rappel y Trekking">
+          Reservar <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a class="btn btn-ghost" href="contact.html">Más info</a>
+      </div>
+
+      <div class="body">
+        <div>
+          <h3 class="title">Rappel y Trekking</h3>
+          <p class="desc">Senderos en quebradas y descenso controlado con equipo y guía.</p>
+          <div class="price">Desde $38.000 CLP</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="thumb">
+        <img src="img/yoga.jpeg" alt="Yoga en la playa Cavancha" loading="lazy">
+      </div>
+
+      <div class="overlay"></div>
+
+      <div class="meta">
+        <span class="m"><i class="fa-regular fa-clock"></i> 1 h</span>
+        <span class="m"><i class="fa-solid fa-location-dot"></i> Playa Cavancha</span>
+        <span class="m"><i class="fa-solid fa-chart-simple"></i> Nivel: Todos</span>
+      </div>
+
+      <div class="cta">
+        <a class="btn btn-primary whatsapp" data-title="Yoga en la playa">
+          Reservar <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a class="btn btn-ghost" href="contact.html">Más info</a>
+      </div>
+
+      <div class="body">
+        <div>
+          <h3 class="title">Yoga en la playa</h3>
+          <p class="desc">Clases al amanecer o atardecer con instructores. Ideal para relajar cuerpo y mente.</p>
+          <div class="price">Desde $10.000 CLP</div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="video-section">
+  <h2>
+    <i class="fa-solid fa-circle-play"></i>
+    Videos de nuestras experiencias
+  </h2>
+
+  <p>Conoce nuestras actividades antes de reservar.</p>
+
+  <div class="videos">
+    <div class="video-card">
+      <video autoplay loop muted playsinline poster="img/video_sandboard.jpg">
+        <source src="videos/sand.mp4" type="video/mp4">
+      </video>
+
+      <div class="video-info">
+        <h3>Sandboard</h3>
+        <p>Descensos y paisajes del Cerro Dragón.</p>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <video autoplay loop muted playsinline poster="img/video_parapente.jpg">
+        <source src="videos/parapentevi.mp4" type="video/mp4">
+      </video>
+
+      <div class="video-info">
+        <h3>Parapente</h3>
+        <p>Vistas del borde costero de Iquique.</p>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <video autoplay loop muted playsinline poster="img/video_buceo.jpg">
+        <source src="videos/buseovi.mp4" type="video/mp4">
+      </video>
+
+      <div class="video-info">
+        <h3>Buceo y snorkel</h3>
+        <p>Un vistazo al mundo submarino.</p>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <video autoplay loop muted playsinline poster="img/video_yoga.jpg">
+        <source src="videos/parapentevi1.mp4" type="video/mp4">
+      </video>
+
+      <div class="video-info">
+        <h3>Yoga</h3>
+        <p>Calma y energía frente al mar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <p id="footerText">&copy; 2026 Jallalla Turismo Aventura - Iquique, Chile</p>
+
+    <div class="socials">
+      <a href="https://www.facebook.com/share/1BLBdyu36v/" target="_blank" rel="noopener" aria-label="Facebook">
+        <i class="fab fa-facebook fa-2x"></i>
+      </a>
+
+      <a href="https://www.tiktok.com/@jallalla.turismo?_t=ZM-8zD8ZmTbg0e&_r=1" target="_blank" rel="noopener" aria-label="TikTok">
+        <i class="fab fa-tiktok fa-2x"></i>
+      </a>
+
+      <a href="https://www.instagram.com/las_aventuras_del_donoso?igsh=MW1kbmYxOTR1dTZtMw==" target="_blank" rel="noopener" aria-label="Instagram">
+        <i class="fab fa-instagram fa-2x"></i>
+      </a>
+
+      <a href="https://wa.me/56930887075" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp fa-2x"></i>
+      </a>
+    </div>
+
+    <p class="firma" id="footerFirma">Sitio desarrollado por Fabi</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    document.getElementById('navActivities')?.classList.add('active');
+
+    const WA_NUMBER = "56930887075";
+
+    document.querySelectorAll('.whatsapp').forEach(a => {
+      const title = a.dataset.title || 'Actividad';
+      const msg = `Hola Jallalla 👋, me interesa: ${title}. ¿Disponibilidad y precios?`;
+      const phone = WA_NUMBER.replace(/[^0-9]/g, '');
+
+      a.href = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+      a.target = "_blank";
+      a.rel = "noopener";
+    });
+  })();
+</script>
+
+<script src="main.js"></script>
+
+</body>
+</html>

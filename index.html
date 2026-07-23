@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio - Jallalla Turismo Aventura</title>
+
+ <link rel="stylesheet" href="css/style.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    if(menuToggle && navLinks){
+        menuToggle.addEventListener("click", function(){
+            navLinks.classList.toggle("active");
+        });
+    }
+
+});
+</script>
+
+<body>
+
+<header>
+  <nav class="navbar">
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" id="navInicio">Inicio</a></li>
+      <li><a href="about.html" id="navAbout">Sobre Nosotros</a></li>
+      <li><a href="activities.html" id="navActivities">Actividades</a></li>
+      <li><a href="gallery.html" id="navGallery">Galería</a></li>
+      <li><a href="reviews.html" id="navReviews" data-i18n="common.nav.reviews">Reseñas</a></li>
+      <li><a href="contact.html" id="navContact">Contacto</a></li>
+    </ul>
+
+  </nav>
+
+  <div class="language-switch">
+    <select id="language">
+      <option value="es">ES</option>
+      <option value="en">EN</option>
+      <option value="fr">FR</option>
+      <option value="pt">PT</option>
+      <option value="de">DE</option>
+    </select>
+  </div>
+</header>
+
+<section class="content">
+  <video autoplay muted loop playsinline poster="images/portada-fallback.jpg">
+    <source src="videos/video jallalla.mp4" type="video/mp4">
+    Tu navegador no soporta video HTML5.
+  </video>
+
+  <div class="inner">
+    <h1 id="title">Bienvenidos a Jallalla Turismo Aventura</h1>
+    <p id="desc1">Descubre Iquique y sus alrededores con nuestras emocionantes actividades al aire libre.</p>
+    <p id="desc2">Desde deportes de aventura hasta experiencias relajantes en la playa, tenemos algo para todos.</p>
+    <p id="desc3">Explora, disfruta y crea recuerdos inolvidables con nuestro equipo de expertos guías.</p>
+
+    <a class="hero-btn" href="#actividades" id="heroBtn">Ver actividades</a>
+  </div>
+</section>
+
+<section class="section" id="actividades">
+  <div class="container">
+    <div class="section-top">
+      <div>
+        <h2 class="section-title">Actividades destacadas</h2>
+        <p class="section-lead">Una probadita de lo que puedes vivir con Jallalla. Si quieres verlas todas, entra a la página de actividades.</p>
+      </div>
+
+      <a class="link-btn" href="activities.html">
+        Ver todas <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="thumb">
+          <img src="img/sandboard.jpeg" alt="Sandboard Cerro Dragón">
+        </div>
+
+        <div class="overlay"></div>
+
+        <div class="meta">
+          <span class="m"><i class="fa-regular fa-clock"></i> 2,5 h</span>
+          <span class="m"><i class="fa-solid fa-location-dot"></i> Cerro Dragón</span>
+        </div>
+
+        <div class="body">
+          <h3 class="title">Sandboard Cerro Dragón</h3>
+          <p class="desc">Deslízate por el icónico Cerro Dragón con instructores certificados.</p>
+          <div class="price">Desde $25.000 CLP</div>
+
+          <div class="cta">
+            <a class="btn btn-ghost" href="activities.html">Más info</a>
+            <a class="btn btn-primary whatsapp" data-title="Sandboard Cerro Dragón">RESERVAR <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+          <img src="img/parapente.jpeg" alt="Parapente biplaza">
+        </div>
+
+        <div class="overlay"></div>
+
+        <div class="meta">
+          <span class="m"><i class="fa-regular fa-clock"></i> 1,5 h</span>
+          <span class="m"><i class="fa-solid fa-location-dot"></i> Alto Hospicio</span>
+        </div>
+
+        <div class="body">
+          <h3 class="title">Parapente biplaza</h3>
+          <p class="desc">Vuela sobre Iquique con pilotos certificados.</p>
+          <div class="price">Desde $50.000 CLP</div>
+
+          <div class="cta">
+            <a class="btn btn-ghost" href="activities.html">Más info</a>
+            <a class="btn btn-primary whatsapp" data-title="Parapente biplaza">RESERVAR <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="galeria">
+  <div class="container">
+    <div class="section-top">
+      <div>
+        <h2 class="section-title">Galería</h2>
+        <p class="section-lead">Momentos reales de nuestras aventuras.</p>
+      </div>
+
+      <a class="link-btn" href="gallery.html">
+        Ver galería <i class="fa-solid fa-images"></i>
+      </a>
+    </div>
+
+    <div class="gallery-grid">
+  <a class="big" href="gallery.html"><img src="img/san1.jpeg" alt="Sandboard en Iquique"></a>
+  <a href="gallery.html"><img src="img/san2.jpeg" alt="Experiencia Jallalla"></a>
+  <a href="gallery.html"><img src="img/san3.jpeg" alt="Cerro Dragón"></a>
+  <a class="big" href="gallery.html"><img src="img/san4.jpeg" alt="Aventura en Iquique"></a>
+  <a href="gallery.html"><img src="img/san5.jpeg" alt="Turismo aventura"></a>
+  <a href="gallery.html"><img src="img/sandboard.jpeg" alt="Sandboard"></a>
+</div>
+  </div>
+</section>
+
+<section class="section" id="videos">
+  <div class="container">
+    <div class="section-top">
+      <div>
+        <h2 class="section-title">Videos</h2>
+        <p class="section-lead">Un adelanto de cada experiencia.</p>
+      </div>
+    </div>
+
+    <div class="videos">
+      <div class="video-card">
+        <video autoplay loop muted playsinline poster="images/video_sandboard.jpg">
+          <source src="videos/sand.mp4" type="video/mp4">
+        </video>
+
+        <div class="video-info">
+          <h4>Sandboard</h4>
+          <p>Descensos y vista panorámica en Cerro Dragón.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <video autoplay loop muted playsinline poster="images/video_parapente.jpg">
+          <source src="videos/parapentevi.mp4" type="video/mp4">
+        </video>
+
+        <div class="video-info">
+          <h4>Parapente</h4>
+          <p>Vistas increíbles del borde costero de Iquique.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="sobre">
+  <div class="container">
+    <div class="section-top">
+      <div>
+        <h2 class="section-title">Sobre Nosotros</h2>
+        <p class="section-lead">Somos un equipo apasionado por la aventura, la seguridad y las experiencias que se quedan contigo.</p>
+      </div>
+
+      <a class="link-btn" href="about.html">
+        Conócenos <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="about-mini">
+      <div class="box">
+        <h3>Jallalla Turismo Aventura</h3>
+        <p>
+          En Jallalla nos encanta mostrar Iquique desde otra perspectiva: dunas, mar, aire y naturaleza.
+          Nuestro foco es que vivas una experiencia segura, cercana y memorable.
+        </p>
+
+        <div class="why">“No vendemos tours, creamos recuerdos que se quedan contigo.”</div>
+      </div>
+
+      <img src="img/iquique.jpeg" alt="Equipo Jallalla Turismo Aventura">
+    </div>
+  </div>
+</section>
+
+<section class="section" id="resenas">
+  <div class="container">
+    <div class="section-top">
+      <div>
+        <h2 class="section-title">Reseñas</h2>
+        <p class="section-lead">Lo que más nos importa es que la gente se vaya feliz y que quiera volver.</p>
+      </div>
+
+      <a class="link-btn" href="reviews.html">
+        Ver reseñas <i class="fa-solid fa-star"></i>
+      </a>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review">
+        <div class="stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <p>“Increíble experiencia, el equipo súper atento y la actividad fue segura y entretenida. ¡Repetiría!”</p>
+        <div class="name">— Tefiti</div>
+      </div>
+
+      <div class="review">
+        <div class="stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <p>“El sandboard fue lo máximo. Nos sacaron fotos, explicaron todo y se notó la buena onda.”</p>
+        <div class="name">— Mackita pitbull</div>
+      </div>
+
+      <div class="review">
+        <div class="stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <p>“Parapente 10/10. Vistas hermosas y mucha seguridad. Lo recomiendo totalmente.”</p>
+        <div class="name">— Vai</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contacto">
+  <div class="container">
+    <div class="contact-cta">
+      <div>
+        <h3>¿List@ para reservar tu aventura?</h3>
+        <p>Escríbenos por WhatsApp y te ayudamos con horarios, precios y disponibilidad.</p>
+      </div>
+
+      <a class="wsp-big" href="#" id="wspBig">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>Hablar por WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ubicacion">
+    <h2><i class="fa-solid fa-map-location-dot"></i> ¿Dónde estamos?</h2>
+    <p>Nos encontramos en el norte de Chile, ofreciendo experiencias en Iquique, Alto Hospicio y sus alrededores.</p>
+
+    <iframe 
+      class="mapa"
+      src="https://www.google.com/maps?q=Iquique,Chile&output=embed"
+      loading="lazy">
+    </iframe>
+
+    <a href="https://www.google.com/maps?q=Iquique,Chile" target="_blank" rel="noopener" class="btn-mapa">
+      <i class="fa-solid fa-location-dot"></i>
+      Ver ubicación en Google Maps
+    </a>
+
+    <div class="info-contacto">
+      <p><strong><i class="fa-solid fa-phone"></i> Teléfono:</strong> +56 9 3088 7075</p>
+      <p><strong><i class="fa-solid fa-envelope"></i> Email:</strong> jallallaturismoaventura@gmail.com</p>
+      <p><strong><i class="fa-solid fa-location-dot"></i> Ubicación:</strong> Iquique, Región de Tarapacá, Chile</p>
+    </div>
+  </div>
+
+  <div class="footer-content">
+    <p id="footerText">&copy; 2026 Jallalla Turismo Aventura - Iquique, Chile</p>
+
+    <div class="socials">
+      <a href="https://www.facebook.com/share/1BLBdyu36v/" target="_blank" rel="noopener" aria-label="Facebook">
+        <i class="fab fa-facebook fa-2x"></i>
+      </a>
+
+      <a href="https://www.tiktok.com/@jallalla.turismo?_t=ZM-8zD8ZmTbg0e&_r=1" target="_blank" rel="noopener" aria-label="TikTok">
+        <i class="fab fa-tiktok fa-2x"></i>
+      </a>
+
+      <a href="https://www.instagram.com/las_aventuras_del_donoso?igsh=MW1kbmYxOTR1dTZtMw==" target="_blank" rel="noopener" aria-label="Instagram">
+        <i class="fab fa-instagram fa-2x"></i>
+      </a>
+
+      <a href="https://wa.me/56930887075" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp fa-2x"></i>
+      </a>
+    </div>
+
+    <p class="firma" id="footerFirma">Sitio desarrollado por Fabi</p>
+  </div>
+</footer>
+
+<script>
+  const WA_NUMBER = "56930887075";
+
+  document.querySelectorAll('.whatsapp').forEach(btn => {
+    const title = btn.dataset.title || "Actividad";
+    const msg = `Hola Jallalla 👋, me interesa: ${title}. ¿Disponibilidad?`;
+
+    btn.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+    btn.target = "_blank";
+    btn.rel = "noopener";
+  });
+
+  const wspBig = document.getElementById("wspBig");
+
+  if (wspBig) {
+    const msg = "Hola Jallalla 👋, quiero cotizar y reservar una actividad. ¿Qué horarios tienen?";
+
+    wspBig.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+    wspBig.target = "_blank";
+    wspBig.rel = "noopener";
+  }
+</script>
+
+<script src="main.js"></script>
+
+</body>
+</html>
