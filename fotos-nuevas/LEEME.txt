@@ -1,0 +1,4 @@
+Pon aquí las fotos nuevas, en una carpeta por categoría:
+  fotos-nuevas/sandboard/  fotos-nuevas/parapente/  fotos-nuevas/buceo/
+  fotos-nuevas/escalada/   fotos-nuevas/yoga/       fotos-nuevas/iquique/
+Luego ejecuta:  python3 tools/galeria.py

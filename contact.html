@@ -1,175 +1,235 @@
 <!DOCTYPE html>
-
-<html lang="es">
+<html lang="es" data-page="contact">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contacto - Jallalla Turismo Aventura</title>
+  <title>Contacto y reservas | Jallalla Turismo Aventura</title>
+  <meta name="description" content="Cotiza y reserva tu aventura en Iquique por WhatsApp, Facebook o correo. Atención las 24 horas, todos los días.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#faf7f2">
 
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jallalla Turismo Aventura">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="Contacto y reservas | Jallalla Turismo Aventura">
+  <meta property="og:description" content="Cotiza y reserva tu aventura en Iquique por WhatsApp, Facebook o correo. Atención las 24 horas, todos los días.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contacto y reservas | Jallalla Turismo Aventura">
+  <meta name="twitter:description" content="Cotiza y reserva tu aventura en Iquique por WhatsApp, Facebook o correo. Atención las 24 horas, todos los días.">
+  <!-- SEO:START -->
+  <!-- SEO:END -->
+
+  <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="img/icon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="preload" href="fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/playfair-display-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
+<a class="skip-link" href="#main" data-t="skip">Saltar al contenido</a>
 
-<header>
-  <nav>
-    <ul>
-      <li><a href="index.html" id="navInicio">Inicio</a></li>
-      <li><a href="about.html" id="navAbout">Sobre Nosotros</a></li>
-      <li><a href="activities.html" id="navActivities">Actividades</a></li>
-      <li><a href="gallery.html" id="navGallery">Galería</a></li>
-      <li><a href="reviews.html" id="navReviews" data-i18n="common.nav.reviews">Reseñas</a></li>
-      <li><a href="contact.html" id="navContact">Contacto</a></li>
-    </ul>
-  </nav>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <img src="img/logo-160.webp" srcset="img/logo-160.webp 1x, img/logo-320.webp 2x" width="160" height="127" alt="Jallalla Turismo Aventura">
+    </a>
 
-  <div class="language-switch">
-    <select id="language">
-      <option value="es">ES</option>
-      <option value="en">EN</option>
-      <option value="fr">FR</option>
-      <option value="pt">PT</option>
-      <option value="de">DE</option>
-    </select>
+    <nav aria-label="Principal">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" data-t="nav.home">Inicio</a></li>
+        <li><a href="about.html" data-t="nav.about">Nosotros</a></li>
+        <li><a href="activities.html" data-t="nav.activities">Actividades</a></li>
+        <li><a href="gallery.html" data-t="nav.gallery">Galería</a></li>
+        <li><a href="reviews.html" data-t="nav.reviews">Reseñas</a></li>
+        <li><a href="contact.html" data-t="nav.contact" class="active" aria-current="page">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-tools">
+      <label class="lang-switch">
+        <span class="sr-only" data-t="lang.label">Idioma</span>
+        <i class="fa-solid fa-globe" aria-hidden="true"></i>
+        <select id="language">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+        </select>
+      </label>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menú" data-t-aria="menu.open">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
   </div>
 </header>
 
-<section class="page-content contact-page">
-
-  <h1 id="title">
-    <i class="fa-solid fa-envelope-circle-check"></i>
-    Contáctanos
-  </h1>
-
-  <p class="section-lead">
-    ¿Tienes dudas sobre nuestras actividades? Escríbenos y te responderemos lo antes posible.
-  </p>
-
-  <form id="desc1" class="contact-form">
-    <input type="text" placeholder="Nombre" required>
-
-```
-<input type="email" placeholder="Correo electrónico" required>
-
-<textarea rows="5" placeholder="Mensaje" required></textarea>
-
-<button type="submit">
-  <i class="fa-solid fa-paper-plane"></i>
-  Enviar mensaje
-</button>
-```
-
-  </form>
-
-  <div class="ubicacion">
-
-```
-<h2>
-  <i class="fa-solid fa-map-location-dot"></i>
-  ¿Dónde estamos?
-</h2>
-
-<p>
-  Nos encontramos en el norte de Chile, ofreciendo experiencias en Iquique, Alto Hospicio y sus alrededores.
-</p>
-
-<iframe
-  class="mapa"
-  src="https://www.google.com/maps?q=Iquique,Chile&output=embed"
-  loading="lazy">
-</iframe>
-
-<a href="https://www.google.com/maps?q=Iquique,Chile"
-   target="_blank"
-   rel="noopener"
-   class="btn-mapa">
-  <i class="fa-solid fa-location-dot"></i>
-  Ver ubicación en Google Maps
-</a>
-
-<div class="info-contacto">
-  <p>
-    <strong>
-      <i class="fa-solid fa-phone"></i>
-      Teléfono:
-    </strong>
-    +56 9 3088 7075
-  </p>
-
-  <p>
-    <strong>
-      <i class="fa-solid fa-envelope"></i>
-      Email:
-    </strong>
-    jallallaturismoaventura@gmail.com
-  </p>
-
-  <p>
-    <strong>
-      <i class="fa-solid fa-location-dot"></i>
-      Ubicación:
-    </strong>
-    Iquique, Región de Tarapacá, Chile
-  </p>
-</div>
-```
-
+<section class="page-hero " style="background-image:url(img/gallery/full/san4.webp)">
+  <div class="container">
+    <h1 data-t="contact.title">Contacto y reservas</h1>
+    <p data-t="contact.lead">Cuéntanos qué quieres hacer y te respondemos por WhatsApp a la brevedad.</p>
   </div>
-
 </section>
 
-<footer>
+<main id="main">
+<section class="section">
+  <div class="container contact-grid">
+    <div class="panel">
+      <h2 data-t="contact.formTitle">Cotiza por WhatsApp</h2>
+      <p data-t="contact.formLead">Completa los datos y se abrirá WhatsApp con tu mensaje listo para enviar.</p>
+      <form class="form" id="waForm" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="fName" data-t="contact.fName">Tu nombre</label>
+            <input id="fName" name="name" type="text" maxlength="60" autocomplete="given-name" required placeholder="Ej: Camila" data-t-ph="contact.fNamePh">
+          </div>
+          <div class="field">
+            <label for="fActivity" data-t="contact.fActivity">Actividad</label>
+            <select id="fActivity" name="activity">
+              <option value="" data-t="contact.fChoose">Elige una actividad</option>
+            <option value="sandboard" data-t="act.sandboard.title">Sandboard en el Cerro Dragón</option>
+            <option value="parapente" data-t="act.parapente.title">Parapente biplaza</option>
+            <option value="buceo" data-t="act.buceo.title">Buceo y snorkel</option>
+            <option value="rappel" data-t="act.rappel.title">Rappel y trekking</option>
+            <option value="yoga" data-t="act.yoga.title">Yoga en la playa</option>
+              <option value="otra" data-t="contact.fOther">Otra / No sé aún</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="fDate" data-t="contact.fDate">Fecha tentativa</label>
+            <input id="fDate" name="date" type="date">
+          </div>
+          <div class="field">
+            <label for="fPeople" data-t="contact.fPeople">Personas</label>
+            <input id="fPeople" name="people" type="number" min="1" max="60" inputmode="numeric" placeholder="2">
+          </div>
+        </div>
+        <div class="field">
+          <label for="fMsg" data-t="contact.fMsg">Mensaje (opcional)</label>
+          <textarea id="fMsg" name="message" rows="4" maxlength="600" placeholder="Ej: somos 2 adultos y un niño de 10 años" data-t-ph="contact.fMsgPh"></textarea>
+        </div>
+        <p class="form-error" id="waFormError" role="alert" hidden data-t="contact.err">Escribe tu nombre para continuar.</p>
+        <button type="submit" class="btn btn-wa"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> <span data-t="contact.fSend">Continuar en WhatsApp</span></button>
+      </form>
+    </div>
 
-  <div class="footer-content">
-
-```
-<p id="footerText">
-  &copy; 2026 Jallalla Turismo Aventura - Iquique, Chile
-</p>
-
-<div class="socials">
-
-  <a href="https://www.facebook.com/share/1BLBdyu36v/"
-     target="_blank"
-     rel="noopener"
-     aria-label="Facebook">
-    <i class="fab fa-facebook fa-2x"></i>
-  </a>
-
-  <a href="https://www.tiktok.com/@jallalla.turismo?_t=ZM-8zD8ZmTbg0e&_r=1"
-     target="_blank"
-     rel="noopener"
-     aria-label="TikTok">
-    <i class="fab fa-tiktok fa-2x"></i>
-  </a>
-
-  <a href="https://www.instagram.com/las_aventuras_del_donoso?igsh=MW1kbmYxOTR1dTZtMw=="
-     target="_blank"
-     rel="noopener"
-     aria-label="Instagram">
-    <i class="fab fa-instagram fa-2x"></i>
-  </a>
-
-  <a href="https://wa.me/56930887075"
-     target="_blank"
-     rel="noopener"
-     aria-label="WhatsApp">
-    <i class="fab fa-whatsapp fa-2x"></i>
-  </a>
-
-</div>
-
-<p class="firma" id="footerFirma">
-  Sitio desarrollado por Fabi
-</p>
-```
-
+    <div class="panel">
+      <h2 data-t="contact.chTitle">Otras formas de contactarnos</h2>
+      <div class="channels" style="margin-top:16px">
+        <a class="channel" data-wa href="#">
+          <span class="channel-icon ic-wa"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+          <span><strong>WhatsApp</strong><small data-t="contact.chWa">Respuesta rápida, 24 h</small></span>
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+        <a class="channel" data-link="messenger" href="#">
+          <span class="channel-icon ic-ms"><i class="fa-brands fa-facebook-messenger" aria-hidden="true"></i></span>
+          <span><strong>Messenger</strong><small data-t="contact.chMessenger">Escríbenos por Messenger</small></span>
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+        <a class="channel" data-link="instagramDM" href="#">
+          <span class="channel-icon ic-ig"><i class="fa-brands fa-instagram" aria-hidden="true"></i></span>
+          <span><strong>Instagram</strong><small data-t="contact.chIg">Mensaje directo</small></span>
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+        <a class="channel" data-link="facebook" href="#">
+          <span class="channel-icon ic-fb"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span>
+          <span><strong>Facebook</strong><small data-t="contact.chFb">Visita nuestra página</small></span>
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+        <a class="channel" data-link="tiktok" href="#">
+          <span class="channel-icon ic-tt"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></span>
+          <span><strong>TikTok</strong><small data-t="contact.chTiktok">Mira nuestros videos</small></span>
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+        <a class="channel" data-link="email" href="#">
+          <span class="channel-icon ic-mail"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+          <span><strong>Email</strong><small data-config="email"></small></span>
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+        <a class="channel" data-link="phone" href="#">
+          <span class="channel-icon ic-phone"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
+          <span><strong data-t="contact.phone">Teléfono</strong><small data-config="phoneDisplay"></small></span>
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="hours"><i class="fa-regular fa-clock" aria-hidden="true"></i> <span data-t="footer.hours">Atención las 24 horas, todos los días</span></div>
+    </div>
   </div>
+</section>
 
+<section class="section section-alt" id="ubicacion">
+  <div class="container location">
+    <div>
+      <h2 data-t="loc.title">¿Dónde estamos?</h2>
+      <p data-t="loc.text">Operamos en Iquique, Alto Hospicio y alrededores, en la Región de Tarapacá, norte de Chile.</p>
+      <a class="link-arrow" data-link="maps" href="#"><span data-t="map.open">Abrir en Google Maps</span> <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+    </div>
+    <div class="map-box" data-map></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html">
+          <img src="img/logo-160.webp" srcset="img/logo-160.webp 1x, img/logo-320.webp 2x" width="160" height="127" alt="Jallalla Turismo Aventura" loading="lazy">
+        </a>
+        <p data-t="footer.tagline">Turismo aventura en Iquique: dunas, mar y aire con guías locales.</p>
+      </div>
+
+      <div>
+        <h3 data-t="footer.explore">Explora</h3>
+        <ul class="footer-links">
+          <li><a href="index.html" data-t="nav.home">Inicio</a></li>
+          <li><a href="about.html" data-t="nav.about">Nosotros</a></li>
+          <li><a href="activities.html" data-t="nav.activities">Actividades</a></li>
+          <li><a href="gallery.html" data-t="nav.gallery">Galería</a></li>
+          <li><a href="reviews.html" data-t="nav.reviews">Reseñas</a></li>
+          <li><a href="contact.html" data-t="nav.contact">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 data-t="footer.contact">Contacto</h3>
+        <div class="footer-contact">
+          <a data-wa href="#"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> <span data-config="phoneDisplay"></span></a>
+          <a data-link="email" href="#"><i class="fa-solid fa-envelope" aria-hidden="true"></i> <span data-config="email"></span></a>
+          <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Iquique, Tarapacá, Chile</span>
+          <span><i class="fa-regular fa-clock" aria-hidden="true"></i> <span data-t="footer.hours">Atención las 24 horas, todos los días</span></span>
+        </div>
+      </div>
+
+      <div>
+        <h3 data-t="footer.follow">Síguenos</h3>
+        <div class="socials">
+          <a data-link="facebook" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a data-link="instagram" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a data-link="tiktok" href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+          <a data-wa href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span data-t="footer.rights">© 2026 Jallalla Turismo Aventura · Iquique, Chile</span>
+      <nav aria-label="Legal">
+        <a href="privacidad.html" data-t="footer.privacy">Privacidad</a>
+        <button type="button" data-cookie-prefs data-t="footer.cookies">Preferencias de cookies</button>
+      </nav>
+      <span class="footer-by" data-t="footer.by">Sitio desarrollado por Fabi</span>
+    </div>
+  </div>
 </footer>
 
+<script src="js/config.js"></script>
+<script src="js/i18n.js"></script>
 <script src="main.js"></script>
-
 </body>
 </html>

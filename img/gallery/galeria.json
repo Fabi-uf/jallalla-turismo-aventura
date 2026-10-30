@@ -1,0 +1,126 @@
+{
+  "categorias": {
+    "sandboard": {
+      "es": "Sandboard",
+      "en": "Sandboarding"
+    },
+    "parapente": {
+      "es": "Parapente",
+      "en": "Paragliding"
+    },
+    "buceo": {
+      "es": "Buceo",
+      "en": "Diving"
+    },
+    "escalada": {
+      "es": "Escalada",
+      "en": "Climbing"
+    },
+    "yoga": {
+      "es": "Yoga",
+      "en": "Yoga"
+    },
+    "iquique": {
+      "es": "Iquique",
+      "en": "Iquique"
+    }
+  },
+  "fotos": [
+    {
+      "archivo": "san5",
+      "categoria": "sandboard",
+      "es": "Grupo en la cima al atardecer",
+      "en": "Group on the summit at sunset",
+      "ancho": 720,
+      "alto": 897
+    },
+    {
+      "archivo": "parapente",
+      "categoria": "parapente",
+      "es": "Vuelo en parapente sobre Iquique",
+      "en": "Paragliding over Iquique",
+      "ancho": 677,
+      "alto": 1200
+    },
+    {
+      "archivo": "san2",
+      "categoria": "sandboard",
+      "es": "Tablas arriba frente a la ciudad",
+      "en": "Boards up facing the city",
+      "ancho": 675,
+      "alto": 1200
+    },
+    {
+      "archivo": "escalar",
+      "categoria": "escalada",
+      "es": "Escalada en roca frente al mar",
+      "en": "Rock climbing by the sea",
+      "ancho": 720,
+      "alto": 960
+    },
+    {
+      "archivo": "yoga",
+      "categoria": "yoga",
+      "es": "Yoga en la playa al atardecer",
+      "en": "Beach yoga at sunset",
+      "ancho": 720,
+      "alto": 405
+    },
+    {
+      "archivo": "san1",
+      "categoria": "sandboard",
+      "es": "Sandboard en el Cerro Dragón",
+      "en": "Sandboarding at Cerro Dragón",
+      "ancho": 720,
+      "alto": 540
+    },
+    {
+      "archivo": "buseo",
+      "categoria": "buceo",
+      "es": "Buceo en la costa de Iquique",
+      "en": "Diving off the Iquique coast",
+      "ancho": 609,
+      "alto": 696
+    },
+    {
+      "archivo": "san3",
+      "categoria": "sandboard",
+      "es": "Arriba de la duna con la tabla",
+      "en": "On top of the dune with the board",
+      "ancho": 675,
+      "alto": 1200
+    },
+    {
+      "archivo": "iquique",
+      "categoria": "iquique",
+      "es": "Iquique de noche",
+      "en": "Iquique by night",
+      "ancho": 640,
+      "alto": 416
+    },
+    {
+      "archivo": "san4",
+      "categoria": "sandboard",
+      "es": "Sandboard en familia",
+      "en": "Family sandboarding",
+      "ancho": 720,
+      "alto": 900
+    },
+    {
+      "archivo": "sandboard",
+      "categoria": "sandboard",
+      "es": "Bajando la duna al atardecer",
+      "en": "Riding down the dune at sunset",
+      "ancho": 720,
+      "alto": 960
+    },
+    {
+      "archivo": "san6",
+      "categoria": "sandboard",
+      "es": "Listo para bajar el Cerro Dragón",
+      "en": "Ready to ride Cerro Dragón",
+      "ancho": 720,
+      "alto": 897
+    }
+  ]
+}
