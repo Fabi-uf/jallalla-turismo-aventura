@@ -1,0 +1,3 @@
+Aquí llegan las fotos subidas desde el panel (Pages CMS). GitHub las optimiza solas
+y las borra de esta carpeta. También puedes dejar fotos a mano en una carpeta por
+categoría (ej: fotos-nuevas/yoga/) y ejecutar: python3 tools/galeria.py

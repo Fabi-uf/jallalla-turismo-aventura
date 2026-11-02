@@ -1,0 +1,189 @@
+# Panel de administración (Pages CMS · https://app.pagescms.org)
+# Define qué puede editar el negocio sin tocar código.
+
+media:
+  - name: fotos
+    label: Fotos
+    input: fotos-nuevas
+    output: fotos-nuevas
+    extensions: [jpg, jpeg, png, webp, heic]
+
+content:
+  - name: galeria
+    label: Galería de fotos
+    type: file
+    path: data/galeria.json
+    format: json
+    fields:
+      - name: fotos
+        label: Fotos (la primera aparece primero)
+        type: object
+        list: true
+        fields:
+          - name: imagen
+            label: Foto
+            type: image
+            required: true
+            options:
+              media: fotos
+          - name: categoria
+            label: Actividad
+            type: select
+            required: true
+            options:
+              values:
+                - name: sandboard
+                  label: Sandboard
+                - name: parapente
+                  label: Parapente
+                - name: buceo
+                  label: Buceo
+                - name: escalada
+                  label: Escalada
+                - name: yoga
+                  label: Yoga
+                - name: iquique
+                  label: Iquique
+          - name: es
+            label: Título en español (opcional)
+            type: string
+          - name: en
+            label: Título en inglés (opcional)
+            type: string
+
+  - name: resenas
+    label: Reseñas
+    type: file
+    path: data/resenas.json
+    format: json
+    fields:
+      - name: resenas
+        label: Reseñas publicadas (pide permiso a cada persona)
+        type: object
+        list: true
+        fields:
+          - name: nombre
+            label: Nombre
+            type: string
+            required: true
+          - name: estrellas
+            label: Estrellas (1 a 5)
+            type: number
+            required: true
+            options:
+              min: 1
+              max: 5
+          - name: actividad
+            label: Actividad
+            type: select
+            options:
+              values:
+                - name: sandboard
+                  label: Sandboard
+                - name: parapente
+                  label: Parapente
+                - name: buceo
+                  label: Buceo
+                - name: rappel
+                  label: Rappel y trekking
+                - name: yoga
+                  label: Yoga
+                - name: otra
+                  label: Otra
+          - name: fecha
+            label: Fecha
+            type: date
+          - name: texto
+            label: Reseña
+            type: text
+            required: true
+          - name: fuente
+            label: Dónde la dejó
+            type: select
+            options:
+              values:
+                - name: web
+                  label: Sitio web
+                - name: facebook
+                  label: Facebook
+                - name: instagram
+                  label: Instagram
+                - name: tiktok
+                  label: TikTok
+                - name: whatsapp
+                  label: WhatsApp
+                - name: google
+                  label: Google
+          - name: respuesta
+            label: Respuesta de Jallalla (opcional)
+            type: text
+
+  - name: sitio
+    label: Contacto, redes y precios
+    type: file
+    path: data/sitio.json
+    format: json
+    fields:
+      - name: whatsapp
+        label: WhatsApp (solo números, con 56. Ej 56930887075)
+        type: string
+        required: true
+      - name: telefono
+        label: Teléfono como se muestra (ej +56 9 3088 7075)
+        type: string
+      - name: email
+        label: Correo
+        type: string
+      - name: facebook
+        label: Link de Facebook (vacío = se oculta)
+        type: string
+      - name: messenger
+        label: Link de Messenger (ej https://m.me/usuario)
+        type: string
+      - name: instagram
+        label: Link de Instagram
+        type: string
+      - name: instagramDM
+        label: Chat de Instagram (ej https://ig.me/m/usuario)
+        type: string
+      - name: tiktok
+        label: Link de TikTok
+        type: string
+      - name: googleMaps
+        label: Link de la ficha en Google Maps
+        type: string
+      - name: googleResena
+        label: Link para escribir reseña en Google
+        type: string
+      - name: mapa
+        label: Búsqueda para el mapa del sitio (ej Jallalla Turismo Aventura, Iquique)
+        type: string
+      - name: precios
+        label: Precios desde (en pesos, 0 = "Consultar precio")
+        type: object
+        fields:
+          - name: sandboard
+            label: Sandboard
+            type: number
+            options:
+              min: 0
+          - name: parapente
+            label: Parapente
+            type: number
+            options:
+              min: 0
+          - name: buceo
+            label: Buceo y snorkel
+            type: number
+            options:
+              min: 0
+          - name: rappel
+            label: Rappel y trekking
+            type: number
+            options:
+              min: 0
+          - name: yoga
+            label: Yoga
+            type: number
+            options:
+              min: 0

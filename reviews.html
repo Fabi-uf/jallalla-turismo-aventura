@@ -1,469 +1,266 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-page="reviews">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reseñas - Jallalla Turismo Aventura</title>
+  <title>Reseñas | Jallalla Turismo Aventura</title>
+  <meta name="description" content="Opiniones reales de viajeros que hicieron sandboard, parapente, buceo y más con Jallalla Turismo Aventura en Iquique.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#faf7f2">
 
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jallalla Turismo Aventura">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="Reseñas | Jallalla Turismo Aventura">
+  <meta property="og:description" content="Opiniones reales de viajeros que hicieron sandboard, parapente, buceo y más con Jallalla Turismo Aventura en Iquique.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Reseñas | Jallalla Turismo Aventura">
+  <meta name="twitter:description" content="Opiniones reales de viajeros que hicieron sandboard, parapente, buceo y más con Jallalla Turismo Aventura en Iquique.">
+  <!-- SEO:START -->
+  <!-- SEO:END -->
+
+  <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="img/icon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="preload" href="fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/playfair-display-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
+<a class="skip-link" href="#main" data-t="skip">Saltar al contenido</a>
 
-<header>
-  <nav>
-    <ul>
-      <li><a href="index.html" data-i18n="common.nav.home">Inicio</a></li>
-      <li><a href="about.html" data-i18n="common.nav.about">Sobre Nosotros</a></li>
-      <li><a href="activities.html" data-i18n="common.nav.activities">Actividades</a></li>
-      <li><a href="gallery.html" data-i18n="common.nav.gallery">Galería</a></li>
-      <li><a href="reviews.html" id="navReviews" data-i18n="common.nav.reviews">Reseñas</a></li>
-      <li><a href="contact.html" data-i18n="common.nav.contact">Contacto</a></li>
-    </ul>
-  </nav>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <img src="img/logo-160.webp" srcset="img/logo-160.webp 1x, img/logo-320.webp 2x" width="160" height="127" alt="Jallalla Turismo Aventura">
+    </a>
 
-  <div class="language-switch">
-    <select id="language" aria-label="Idioma">
-      <option value="es">ES</option>
-      <option value="en">EN</option>
-      <option value="fr">FR</option>
-      <option value="pt">PT</option>
-      <option value="de">DE</option>
-    </select>
+    <nav aria-label="Principal">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" data-t="nav.home">Inicio</a></li>
+        <li><a href="about.html" data-t="nav.about">Nosotros</a></li>
+        <li><a href="activities.html" data-t="nav.activities">Actividades</a></li>
+        <li><a href="gallery.html" data-t="nav.gallery">Galería</a></li>
+        <li><a href="reviews.html" data-t="nav.reviews" class="active" aria-current="page">Reseñas</a></li>
+        <li><a href="contact.html" data-t="nav.contact">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-tools">
+      <label class="lang-switch">
+        <span class="sr-only" data-t="lang.label">Idioma</span>
+        <i class="fa-solid fa-globe" aria-hidden="true"></i>
+        <select id="language">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+        </select>
+      </label>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menú" data-t-aria="menu.open">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
   </div>
 </header>
 
-<main class="jl-wrap reviews-page" id="reviews">
+<section class="page-hero has-overlap" style="background-image:url(img/gallery/full/san2.webp)">
+  <div class="container">
+    <span class="eyebrow"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i> <span data-t="rv.eyebrow">Opiniones reales</span></span>
+    <h1 data-t="reviews.title">Reseñas de nuestros viajeros</h1>
+    <p data-t="rv.lead">Lo que cuentan quienes ya vivieron la aventura con Jallalla.</p>
+  </div>
+</section>
+<main class="rv-page" id="main">
 
-  <header class="jl-rev-head">
-    <h1 data-i18n="reviews.title">
-      Reseñas de nuestros viajeros
-    </h1>
+  <!-- Resumen -->
+  <section class="rv-summary" aria-live="polite">
+    <div class="rv-score">
+      <span class="rv-score-num" id="rvAvg">–</span>
+      <span class="rv-stars rv-stars-lg" id="rvAvgStars"></span>
+      <span class="rv-score-count" id="rvCount" data-t="rv.sumNone">Aún sin reseñas</span>
+    </div>
 
-    <p class="jl-rev-sub" data-i18n="reviews.subtitle">
-      Lo que dicen sobre Jallalla Turismo Aventura
-    </p>
+    <div class="rv-bars" id="rvBars"></div>
 
-    <div class="jl-summary-outer">
-      <div class="jl-summary" aria-live="polite">
-        <div class="jl-score">
-          <span id="jlAvg" class="jl-score-number">—</span>
-          <span id="jlStars" class="jl-stars" aria-hidden="true">★★★★★</span>
-        </div>
-
-        <div class="jl-count">
-          <span id="jlTotal">0</span>
-          <span data-i18n="reviews.count">reseñas en Google</span>
-        </div>
-
-        <a class="jl-btn jl-btn-primary"
-           href="https://g.page/r/CZFO-Onx4DKMEBI/review"
-           target="_blank"
-           rel="noopener"
-           data-i18n="reviews.cta">
-          Escribir reseña en Google
-        </a>
+    <div class="rv-summary-cta">
+      <a href="#escribir" class="rv-btn rv-btn-primary"><i class="fa-solid fa-pen"></i> <span data-t="rv.writeBtn">Escribir una reseña</span></a>
+      <a data-link="googleReview" href="#" class="rv-btn rv-btn-ghost"><i class="fa-brands fa-google" aria-hidden="true"></i> <span data-t="rv.googleWrite">Escribir reseña en Google</span></a>
+      <a data-link="googleMaps" href="#" class="rv-google-see" data-t="rv.googleSee">Ver reseñas en Google</a>
+      <p class="rv-also" data-t="rv.alsoOn">También nos recomiendan en</p>
+      <div class="rv-social">
+        <a data-link="facebook" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a data-link="instagram" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a data-link="tiktok" href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a data-link="googleMaps" href="#" aria-label="Google Maps"><i class="fa-brands fa-google"></i></a>
       </div>
     </div>
+  </section>
 
-    <div class="jl-controls">
-      <label class="jl-control">
-        <span data-i18n="reviews.langFilter">Filtrar por idioma:</span>
-        <select id="jlLangFilter" aria-label="Idioma">
-          <option value="" selected data-i18n="reviews.lang.any">Cualquiera</option>
-          <option value="es" data-i18n="reviews.lang.es">Español</option>
-          <option value="en" data-i18n="reviews.lang.en">Inglés</option>
-          <option value="pt" data-i18n="reviews.lang.pt">Portugués</option>
-          <option value="fr" data-i18n="reviews.lang.fr">Francés</option>
-          <option value="de" data-i18n="reviews.lang.de">Alemán</option>
-        </select>
-      </label>
-
-      <label class="jl-control">
-        <span data-i18n="reviews.minStars">Mín. estrellas:</span>
-        <select id="jlMinStars" aria-label="Mínimo estrellas">
-          <option value="0">0+</option>
-          <option value="3">3+</option>
-          <option value="4" selected>4+</option>
-          <option value="5">5</option>
-        </select>
-      </label>
+  <!-- Filtros -->
+  <div class="rv-toolbar">
+    <div class="gallery-filters rv-filters" id="rvFilters" role="toolbar" aria-label="Filtrar reseñas">
+      <button type="button" class="gallery-filter" data-filter="all" aria-pressed="true"><span data-t="rv.filterAll">Todas</span></button>
+      <button type="button" class="gallery-filter" data-filter="sandboard" aria-pressed="false"><span data-t="rv.act_sandboard">Sandboard</span></button>
+      <button type="button" class="gallery-filter" data-filter="parapente" aria-pressed="false"><span data-t="rv.act_parapente">Parapente</span></button>
+      <button type="button" class="gallery-filter" data-filter="buceo" aria-pressed="false"><span data-t="rv.act_buceo">Buceo</span></button>
+      <button type="button" class="gallery-filter" data-filter="rappel" aria-pressed="false"><span data-t="rv.act_rappel">Rappel y trekking</span></button>
+      <button type="button" class="gallery-filter" data-filter="yoga" aria-pressed="false"><span data-t="rv.act_yoga">Yoga</span></button>
     </div>
-  </header>
 
-  <ul id="jlList" class="jl-list" aria-live="polite"></ul>
-
-  <div class="jl-pager">
-    <button id="jlPrev" class="jl-btn jl-btn-ghost" disabled data-i18n="reviews.prev">Anterior</button>
-    <span id="jlPageInfo" class="jl-page-info">1/1</span>
-    <button id="jlNext" class="jl-btn jl-btn-ghost" disabled data-i18n="reviews.next">Siguiente</button>
+    <label class="rv-sort">
+      <span data-t="rv.sortLabel">Ordenar</span>
+      <select id="rvSort">
+        <option value="recent" data-t="rv.sortRecent">Más recientes</option>
+        <option value="best" data-t="rv.sortBest">Mejor valoradas</option>
+      </select>
+    </label>
   </div>
 
-  <div class="jl-form" aria-labelledby="jlFormTitle">
-    <h3 id="jlFormTitle" data-i18n="reviews.form.title">
-      Deja tu reseña (modo demo, se guarda en este navegador)
-    </h3>
+  <!-- Lista -->
+  <div class="rv-list" id="rvList" aria-live="polite">
+    <p class="rv-state" data-t="rv.loading">Cargando reseñas…</p>
+  </div>
 
-    <form id="jlReviewForm">
-      <div class="jl-field">
-        <label for="jlName" data-i18n="reviews.form.name">Nombre (opcional)</label>
-        <input id="jlName" type="text" maxlength="40" placeholder="Tu nombre">
-      </div>
+  <div class="rv-more">
+    <button type="button" class="rv-btn rv-btn-ghost" id="rvMore" hidden><span data-t="rv.loadMore">Ver más reseñas</span></button>
+  </div>
 
-      <div class="jl-field">
-        <span class="jl-label" data-i18n="reviews.form.rating">Tu calificación:</span>
+  <!-- Formulario -->
+  <section class="rv-form-wrap" id="escribir">
+    <div class="rv-form-intro">
+      <h2 data-t="rv.formTitle">Cuéntanos tu experiencia</h2>
+      <p data-t="rv.formLead">Tu reseña se publicará después de una breve revisión.</p>
+    </div>
 
-        <div class="jl-stars-input" role="radiogroup" aria-label="Calificación">
-          <input type="radio" name="rate" id="r5" value="5"><label for="r5">★</label>
-          <input type="radio" name="rate" id="r4" value="4"><label for="r4">★</label>
-          <input type="radio" name="rate" id="r3" value="3"><label for="r3">★</label>
-          <input type="radio" name="rate" id="r2" value="2"><label for="r2">★</label>
-          <input type="radio" name="rate" id="r1" value="1"><label for="r1">★</label>
+    <form class="rv-form" id="rvForm" novalidate>
+      <div class="rv-grid2">
+        <div class="rv-field">
+          <label for="rvName" data-t="rv.fName">Tu nombre</label>
+          <input id="rvName" name="name" type="text" maxlength="40" autocomplete="given-name" required placeholder="Ej: Camila R." data-t-ph="rv.fNamePh">
+        </div>
+
+        <div class="rv-field">
+          <label for="rvActivity" data-t="rv.fActivity">¿Qué actividad hiciste?</label>
+          <select id="rvActivity" name="activity" required>
+            <option value="" data-t="rv.fChoose">Elige una actividad</option>
+            <option value="sandboard" data-t="rv.act_sandboard">Sandboard</option>
+            <option value="parapente" data-t="rv.act_parapente">Parapente</option>
+            <option value="buceo" data-t="rv.act_buceo">Buceo</option>
+            <option value="rappel" data-t="rv.act_rappel">Rappel y trekking</option>
+            <option value="yoga" data-t="rv.act_yoga">Yoga</option>
+            <option value="otra" data-t="rv.act_otra">Otra</option>
+          </select>
         </div>
       </div>
 
-      <div class="jl-field">
-        <label for="jlText" data-i18n="reviews.form.text">Tu experiencia:</label>
-        <textarea id="jlText" rows="4" maxlength="600" placeholder="Cuéntanos cómo te fue…"></textarea>
+      <fieldset class="rv-field rv-rate">
+        <legend data-t="rv.fRating">Tu calificación</legend>
+        <div class="rv-rate-stars" id="rvRate">
+          <input type="radio" name="rating" id="rv5" value="5"><label for="rv5" title="5"><i class="fa-solid fa-star" aria-hidden="true"></i><span class="sr-only">5</span></label>
+          <input type="radio" name="rating" id="rv4" value="4"><label for="rv4" title="4"><i class="fa-solid fa-star" aria-hidden="true"></i><span class="sr-only">4</span></label>
+          <input type="radio" name="rating" id="rv3" value="3"><label for="rv3" title="3"><i class="fa-solid fa-star" aria-hidden="true"></i><span class="sr-only">3</span></label>
+          <input type="radio" name="rating" id="rv2" value="2"><label for="rv2" title="2"><i class="fa-solid fa-star" aria-hidden="true"></i><span class="sr-only">2</span></label>
+          <input type="radio" name="rating" id="rv1" value="1"><label for="rv1" title="1"><i class="fa-solid fa-star" aria-hidden="true"></i><span class="sr-only">1</span></label>
+        </div>
+        <span class="rv-rate-label" id="rvRateLabel"></span>
+      </fieldset>
+
+      <div class="rv-field">
+        <label for="rvText" data-t="rv.fText">Tu reseña</label>
+        <textarea id="rvText" name="text" rows="5" minlength="15" maxlength="800" required placeholder="¿Qué fue lo que más te gustó?" data-t-ph="rv.fTextPh"></textarea>
+        <span class="rv-chars" id="rvChars">0/800</span>
       </div>
 
-      <div class="jl-field">
-        <label for="jlLang" data-i18n="reviews.form.lang">Idioma de tu reseña:</label>
-        <select id="jlLang">
-          <option value="es">Español</option>
-          <option value="en">English</option>
-          <option value="pt">Português</option>
-          <option value="fr">Français</option>
-          <option value="de">Deutsch</option>
-        </select>
+      <!-- Campo trampa para bots: no lo ven las personas -->
+      <div class="rv-hp" aria-hidden="true">
+        <label for="rvWebsite">Website</label>
+        <input id="rvWebsite" name="website" type="text" tabindex="-1" autocomplete="off">
       </div>
 
-      <div class="jl-actions">
-        <button type="submit" class="jl-btn jl-btn-primary" data-i18n="reviews.form.send">
-          Publicar reseña (demo)
-        </button>
+      <label class="rv-check">
+        <input type="checkbox" id="rvConsent" required>
+        <span data-t="rv.fConsent">Acepto que mi nombre y mi reseña se publiquen en este sitio.</span>
+      </label>
 
-        <button type="button" id="jlClearMine" class="jl-btn jl-btn-ghost" data-i18n="reviews.form.clear">
-          Borrar mis reseñas
-        </button>
-      </div>
+      <p class="rv-msg" id="rvMsg" role="alert" hidden></p>
 
-      <p class="jl-note" data-i18n="reviews.form.note">
-        Nota: esto es un modo demo sin servidor; tus reseñas quedan guardadas solo en este navegador.
-      </p>
+      <button type="submit" class="rv-btn rv-btn-primary rv-submit" id="rvSubmit">
+        <i class="fa-solid fa-paper-plane"></i> <span id="rvSubmitText" data-t="rv.fSend">Enviar reseña</span>
+      </button>
     </form>
-  </div>
+
+    <div class="rv-success" id="rvSuccess" hidden>
+      <span class="rv-success-icon"><i class="fa-solid fa-circle-check"></i></span>
+      <h3 data-t="rv.okTitle">¡Gracias por tu reseña!</h3>
+      <p data-t="rv.okText">La revisaremos y aparecerá publicada pronto.</p>
+      <p class="rv-ok-google" data-link-wrap><span data-t="rv.okGoogle">¿Nos ayudas también con una reseña en Google? Es lo que más ayuda a que nos encuentren.</span><br><a data-link="googleReview" href="#" class="rv-btn rv-btn-primary"><i class="fa-brands fa-google" aria-hidden="true"></i> <span data-t="rv.googleWrite">Escribir reseña en Google</span></a></p>
+      <button type="button" class="rv-btn rv-btn-ghost" id="rvAnother"><span data-t="rv.okAnother">Escribir otra</span></button>
+    </div>
+  </section>
+
 </main>
 
-<footer>
-  <div class="footer-content">
-    <p data-i18n="common.footer.rights">&copy; 2026 Jallalla Turismo Aventura - Iquique, Chile</p>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html">
+          <img src="img/logo-160.webp" srcset="img/logo-160.webp 1x, img/logo-320.webp 2x" width="160" height="127" alt="Jallalla Turismo Aventura" loading="lazy">
+        </a>
+        <p data-t="footer.tagline">Turismo aventura en Iquique: dunas, mar y aire con guías locales.</p>
+      </div>
 
-    <div class="socials">
-      <a href="https://www.facebook.com/share/1BLBdyu36v/" target="_blank" rel="noopener" aria-label="Facebook">
-        <i class="fab fa-facebook fa-2x"></i>
-      </a>
+      <div>
+        <h3 data-t="footer.explore">Explora</h3>
+        <ul class="footer-links">
+          <li><a href="index.html" data-t="nav.home">Inicio</a></li>
+          <li><a href="about.html" data-t="nav.about">Nosotros</a></li>
+          <li><a href="activities.html" data-t="nav.activities">Actividades</a></li>
+          <li><a href="gallery.html" data-t="nav.gallery">Galería</a></li>
+          <li><a href="reviews.html" data-t="nav.reviews">Reseñas</a></li>
+          <li><a href="contact.html" data-t="nav.contact">Contacto</a></li>
+        </ul>
+      </div>
 
-      <a href="https://www.tiktok.com/@jallalla.turismo?_t=ZM-8zD8ZmTbg0e&_r=1" target="_blank" rel="noopener" aria-label="TikTok">
-        <i class="fab fa-tiktok fa-2x"></i>
-      </a>
+      <div>
+        <h3 data-t="footer.contact">Contacto</h3>
+        <div class="footer-contact">
+          <a data-wa href="#"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> <span data-config="phoneDisplay"></span></a>
+          <a data-link="email" href="#"><i class="fa-solid fa-envelope" aria-hidden="true"></i> <span data-config="email"></span></a>
+          <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Iquique, Tarapacá, Chile</span>
+          <span><i class="fa-regular fa-clock" aria-hidden="true"></i> <span data-t="footer.hours">Atención las 24 horas, todos los días</span></span>
+        </div>
+      </div>
 
-      <a href="https://www.instagram.com/las_aventuras_del_donoso?igsh=MW1kbmYxOTR1dTZtMw==" target="_blank" rel="noopener" aria-label="Instagram">
-        <i class="fab fa-instagram fa-2x"></i>
-      </a>
-
-      <a href="https://wa.me/56930887075" target="_blank" rel="noopener" aria-label="WhatsApp">
-        <i class="fab fa-whatsapp fa-2x"></i>
-      </a>
+      <div>
+        <h3 data-t="footer.follow">Síguenos</h3>
+        <div class="socials">
+          <a data-link="facebook" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a data-link="instagram" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a data-link="tiktok" href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+          <a data-link="googleMaps" href="#" aria-label="Google Maps"><i class="fa-brands fa-google" aria-hidden="true"></i></a>
+          <a data-wa href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+        </div>
+      </div>
     </div>
 
-    <p class="firma" data-i18n="common.footer.by">Sitio desarrollado por Fabi</p>
+    <div class="footer-bottom">
+      <span data-t="footer.rights">© 2026 Jallalla Turismo Aventura · Iquique, Chile</span>
+      <nav aria-label="Legal">
+        <a href="privacidad.html" data-t="footer.privacy">Privacidad</a>
+        <button type="button" data-cookie-prefs data-t="footer.cookies">Preferencias de cookies</button>
+      </nav>
+      <span class="footer-by" data-t="footer.by">Sitio desarrollado por Fabi</span>
+    </div>
   </div>
 </footer>
 
-<script>
-(function(){
-  const PAGE_SIZE = 9;
-  const $ = (s, r = document) => r.querySelector(s);
-  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
-  const LS_KEY = "jl_reviews_demo";
-
-  const seed = [
-    {author_name:"maca", rating:5, text:"Experiencia increíble haciendo sandboard en el Cerro Dragón. Guías muy atentos.", time:Date.now()-86400*1000*8, language:"es"},
-    {author_name:"Aurora", rating:4, text:"Parapente soñado, vistas hermosas. Me gustaría más fotos en el paquete.", time:Date.now()-86400*1000*20, language:"es"},
-    {author_name:"Abrahan", rating:5, text:"Amazing paragliding over Iquique! Professional and safe.", time:Date.now()-86400*1000*35, language:"en"}
-  ];
-
-  let page = 1;
-  let all = [];
-  let filtered = [];
-
-  function relative(ts, lang){
-    try{
-      const rtf = new Intl.RelativeTimeFormat(lang || "es", { numeric:"auto" });
-      const diff = Math.round((ts - Date.now()) / 1000);
-      const units = [["year",31536000],["month",2592000],["day",86400],["hour",3600],["minute",60]];
-
-      for(const [unit, sec] of units){
-        const value = Math.trunc(diff / sec);
-        if(Math.abs(value) >= 1) return rtf.format(value, unit);
-      }
-
-      return rtf.format(0, "minute");
-    }catch{
-      return "";
-    }
-  }
-
-  function setAvgGradient(avg){
-    const percent = Math.min(100, (Math.max(0, avg) / 5) * 100);
-    const el = $("#jlStars");
-
-    if(el){
-      el.style.background = `linear-gradient(90deg,#fbbf24 0 ${percent}%,#e5e7eb ${percent}% 100%)`;
-    }
-  }
-
-  function clamp(n, a, b){
-    return Math.max(a, Math.min(b, n));
-  }
-
-  function getMine(){
-    return JSON.parse(localStorage.getItem(LS_KEY) || "[]");
-  }
-
-  function saveMine(list){
-    localStorage.setItem(LS_KEY, JSON.stringify(list));
-  }
-
-  function load(){
-    const mine = getMine();
-    all = seed.concat(mine).sort((a,b) => b.time - a.time);
-  }
-
-  function summary(){
-    const total = all.length;
-    const avg = total ? all.reduce((sum, r) => sum + (r.rating || 0), 0) / total : 0;
-
-    $("#jlAvg").textContent = total ? avg.toFixed(1) : "—";
-    $("#jlTotal").textContent = total;
-    $("#jlStars").textContent = "★★★★★";
-
-    setAvgGradient(avg || 0);
-  }
-
-  function filter(){
-    const lang = $("#jlLangFilter").value;
-    const min = parseInt($("#jlMinStars").value || "0", 10);
-
-    filtered = all.filter(r =>
-      (!lang || (r.language || "").startsWith(lang)) &&
-      (r.rating || 0) >= min
-    );
-
-    page = 1;
-    render();
-    pager();
-  }
-
-  function render(){
-    const list = $("#jlList");
-    list.innerHTML = "";
-
-    if(!filtered.length){
-      list.innerHTML = `
-        <li>
-          <article class="jl-card">
-            <div class="jl-body">
-              <div class="jl-card-head">
-                <span class="jl-author">—</span>
-              </div>
-              <p class="jl-text" data-i18n="reviews.empty">No hay reseñas que coincidan con el filtro.</p>
-            </div>
-          </article>
-        </li>`;
-      return;
-    }
-
-    const start = (page - 1) * PAGE_SIZE;
-    const rows = filtered.slice(start, start + PAGE_SIZE);
-    const langUI = (localStorage.getItem("jl_lang") || document.documentElement.lang || "es").slice(0,2);
-
-    rows.forEach(r => {
-      const li = document.createElement("li");
-
-      li.innerHTML = `
-        <article class="jl-card">
-          <div class="jl-avatar">
-            <i class="fa-solid fa-user"></i>
-          </div>
-
-          <div class="jl-body">
-            <div class="jl-card-head">
-              <span class="jl-author">${r.author_name || "Viajero"}</span>
-              <span class="jl-rating" aria-label="${r.rating || 0} estrellas">${"★".repeat(r.rating || 0)}</span>
-              <span class="jl-time">${r.relative_time_description || relative(r.time, langUI)}</span>
-              ${r.language ? `<span class="jl-badge">${r.language.toUpperCase()}</span>` : ""}
-            </div>
-
-            ${r.text ? `<p class="jl-text">${r.text}</p>` : ""}
-          </div>
-        </article>`;
-
-      list.appendChild(li);
-    });
-  }
-
-  function pager(){
-    const total = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
-
-    $("#jlPageInfo").textContent = `${page}/${total}`;
-    $("#jlPrev").disabled = page <= 1;
-    $("#jlNext").disabled = page >= total;
-  }
-
-  function bindForm(){
-    $("#jlReviewForm").addEventListener("submit", e => {
-      e.preventDefault();
-
-      const name = $("#jlName").value.trim() || "Viajero";
-      const text = $("#jlText").value.trim();
-      const lang = $("#jlLang").value || (localStorage.getItem("jl_lang") || "es").slice(0,2);
-      const rate = $$("input[name='rate']:checked")[0];
-      const rating = rate ? parseInt(rate.value, 10) : 0;
-
-      if(!rating || !text){
-        alert("Por favor, añade una calificación y un comentario.");
-        return;
-      }
-
-      const rev = {
-        author_name: name,
-        rating: clamp(rating, 1, 5),
-        text,
-        time: Date.now(),
-        language: lang
-      };
-
-      const mine = getMine();
-      mine.unshift(rev);
-      saveMine(mine);
-
-      all.unshift(rev);
-
-      $("#jlReviewForm").reset();
-
-      filter();
-      summary();
-    });
-
-    $("#jlClearMine").addEventListener("click", () => {
-      if(confirm("¿Borrar las reseñas guardadas en este navegador?")){
-        saveMine([]);
-        load();
-        filter();
-        summary();
-      }
-    });
-  }
-
-  function bindUI(){
-    $("#jlLangFilter").addEventListener("change", filter);
-    $("#jlMinStars").addEventListener("change", filter);
-
-    $("#jlPrev").addEventListener("click", () => {
-      page = Math.max(1, page - 1);
-      render();
-      pager();
-    });
-
-    $("#jlNext").addEventListener("click", () => {
-      page = page + 1;
-      render();
-      pager();
-    });
-  }
-
-  load();
-  summary();
-  bindUI();
-  bindForm();
-  filter();
-})();
-</script>
-
-<script>
-(function(){
-  const $all = (s, r = document) => Array.from(r.querySelectorAll(s));
-
-  const LANG = {
-    es:{
-      common:{nav:{home:"Inicio",about:"Nosotros",activities:"Actividades",gallery:"Galería",reviews:"Reseñas",contact:"Contacto"},footer:{rights:"© 2026 Jallalla Turismo Aventura - Iquique, Chile",by:"Sitio desarrollado por Fabi"}},
-      reviews:{title:"Reseñas de nuestros viajeros",subtitle:"Lo que dicen sobre Jallalla Turismo Aventura",count:"reseñas en Google",cta:"Escribir reseña en Google",lang:{any:"Cualquiera",es:"Español",en:"Inglés",pt:"Portugués",fr:"Francés",de:"Alemán"},langFilter:"Filtrar por idioma:",minStars:"Mín. estrellas:",prev:"Anterior",next:"Siguiente",empty:"No hay reseñas que coincidan con el filtro.",form:{title:"Deja tu reseña (modo demo, se guarda en este navegador)",name:"Nombre (opcional)",rating:"Tu calificación:",text:"Tu experiencia:",lang:"Idioma de tu reseña:",send:"Publicar reseña (demo)",clear:"Borrar mis reseñas",note:"Nota: esto es un modo demo sin servidor; tus reseñas quedan guardadas solo en este navegador."}}
-    },
-    en:{
-      common:{nav:{home:"Home",about:"About",activities:"Activities",gallery:"Gallery",reviews:"Reviews",contact:"Contact"},footer:{rights:"© 2026 Jallalla Adventure Tourism - Iquique, Chile",by:"Site developed by Fabi"}},
-      reviews:{title:"Traveler reviews",subtitle:"What people say about Jallalla Adventure",count:"Google reviews",cta:"Write a Google review",lang:{any:"Any",es:"Spanish",en:"English",pt:"Portuguese",fr:"French",de:"German"},langFilter:"Filter by language:",minStars:"Min. stars:",prev:"Previous",next:"Next",empty:"No reviews match the filter.",form:{title:"Leave your review (demo mode, saved in this browser)",name:"Name (optional)",rating:"Your rating:",text:"Your experience:",lang:"Review language:",send:"Post review (demo)",clear:"Clear my reviews",note:"Note: this is a demo without a server; your reviews are saved only in this browser."}}
-    },
-    pt:{
-      common:{nav:{home:"Início",about:"Sobre",activities:"Atividades",gallery:"Galeria",reviews:"Avaliações",contact:"Contato"},footer:{rights:"© 2026 Jallalla Turismo de Aventura - Iquique, Chile",by:"Site desenvolvido por Fabi"}},
-      reviews:{title:"Avaliações dos viajantes",subtitle:"O que falam da Jallalla",count:"avaliações no Google",cta:"Escrever avaliação no Google",lang:{any:"Qualquer",es:"Espanhol",en:"Inglês",pt:"Português",fr:"Francês",de:"Alemão"},langFilter:"Filtrar por idioma:",minStars:"Mín. estrelas:",prev:"Anterior",next:"Próximo",empty:"Nenhuma avaliação corresponde ao filtro.",form:{title:"Deixe sua avaliação (modo demo, salva neste navegador)",name:"Nome (opcional)",rating:"Sua avaliação:",text:"Sua experiência:",lang:"Idioma da avaliação:",send:"Publicar avaliação (demo)",clear:"Apagar minhas avaliações",note:"Nota: este é um modo demo sem servidor; suas avaliações ficam salvas apenas neste navegador."}}
-    },
-    fr:{
-      common:{nav:{home:"Accueil",about:"À propos",activities:"Activités",gallery:"Galerie",reviews:"Avis",contact:"Contact"},footer:{rights:"© 2026 Jallalla Tourisme d’Aventure - Iquique, Chili",by:"Site développé par Fabi"}},
-      reviews:{title:"Avis des voyageurs",subtitle:"Ce qu’on dit de Jallalla",count:"avis Google",cta:"Écrire un avis Google",lang:{any:"N’importe",es:"Espagnol",en:"Anglais",pt:"Portugais",fr:"Français",de:"Allemand"},langFilter:"Filtrer par langue :",minStars:"Étoiles min. :",prev:"Préc.",next:"Suiv.",empty:"Aucun avis ne correspond au filtre.",form:{title:"Laissez votre avis (mode démo, enregistré dans ce navigateur)",name:"Nom (facultatif)",rating:"Votre note :",text:"Votre expérience :",lang:"Langue de l’avis :",send:"Publier l’avis (démo)",clear:"Effacer mes avis",note:"Remarque : mode démo sans serveur ; vos avis sont enregistrés seulement dans ce navigateur."}}
-    },
-    de:{
-      common:{nav:{home:"Start",about:"Über uns",activities:"Aktivitäten",gallery:"Galerie",reviews:"Bewertungen",contact:"Kontakt"},footer:{rights:"© 2026 Jallalla Abenteuertourismus - Iquique, Chile",by:"Website entwickelt von Fabi"}},
-      reviews:{title:"Bewertungen unserer Reisenden",subtitle:"Das sagt man über Jallalla",count:"Google-Bewertungen",cta:"Google-Bewertung schreiben",lang:{any:"Beliebig",es:"Spanisch",en:"Englisch",pt:"Portugiesisch",fr:"Französisch",de:"Deutsch"},langFilter:"Nach Sprache filtern:",minStars:"Min. Sterne:",prev:"Zurück",next:"Weiter",empty:"Keine Bewertungen entsprechen dem Filter.",form:{title:"Schreibe deine Bewertung (Demo-Modus, im Browser gespeichert)",name:"Name (optional)",rating:"Deine Bewertung:",text:"Deine Erfahrung:",lang:"Sprache der Bewertung:",send:"Bewertung posten (Demo)",clear:"Meine Bewertungen löschen",note:"Hinweis: Demo ohne Server; deine Bewertungen werden nur in diesem Browser gespeichert."}}
-    }
-  };
-
-  function get(obj, path){
-    return path.split(".").reduce((acc, key) => acc && acc[key] !== undefined ? acc[key] : undefined, obj);
-  }
-
-  function translate(lang){
-    document.documentElement.setAttribute("lang", lang);
-
-    $all("[data-i18n]").forEach(el => {
-      const key = el.getAttribute("data-i18n");
-      const val = get(LANG[lang], key) || get(LANG.es, key);
-
-      if(val !== undefined) el.textContent = val;
-    });
-  }
-
-  function setLang(lang){
-    const short = String(lang || "es").slice(0,2).toLowerCase();
-    localStorage.setItem("jl_lang", short);
-
-    const sel = document.getElementById("language");
-    if(sel) sel.value = short;
-
-    translate(short);
-  }
-
-  const fromLS = localStorage.getItem("jl_lang");
-  const fromURL = new URLSearchParams(location.search).get("lang");
-  const navGuess = (navigator.language || "es").slice(0,2).toLowerCase();
-
-  setLang(fromURL || fromLS || navGuess);
-
-  document.getElementById("language")?.addEventListener("change", e => setLang(e.target.value));
-
-  const current = (location.pathname.split("/").pop() || "reviews.html").toLowerCase();
-
-  document.querySelectorAll("header nav a").forEach(a => {
-    const href = (a.getAttribute("href") || "").toLowerCase();
-
-    if(href === current){
-      a.classList.add("active");
-    }
-  });
-})();
-</script>
-
+<script src="js/config.js"></script>
+<script src="js/i18n.js"></script>
+<script src="main.js"></script>
+<script src="js/reviews.js"></script>
 </body>
 </html>

@@ -1,293 +1,299 @@
-
+/* =========================================================
+   Jallalla Turismo Aventura — script común a todas las páginas
+   - Idioma (ES/EN), menú móvil, enlaces de WhatsApp/redes,
+     precios, banner de cookies, mapa y formulario de contacto.
+   Datos del negocio: data/sitio.json (editable desde el panel)
+   Textos: js/i18n.js · Configuración técnica: js/config.js
+   ========================================================= */
 (function () {
-  // ---- Helpers ----
-  const $ = (id) => document.getElementById(id);
-  const setText = (id, val) => {
-    const el = $(id);
-    if (!el) return false;
-    if (Array.isArray(val)) {
-      el.innerHTML = "";
-      val.forEach((item) => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        el.appendChild(li);
+  // Datos del negocio: se cargan desde data/sitio.json y se unen a js/config.js
+  const cfg = () => window.JL_CONFIG || {};
+  window.JL_READY = fetch("data/sitio.json", { cache: "no-cache" })
+    .then((r) => (r.ok ? r.json() : {}))
+    .catch(() => ({}))
+    .then((d) => {
+      const prices = d.precios || {};
+      window.JL_CONFIG = Object.assign({}, window.JL_CONFIG || {}, {
+        whatsapp: String(d.whatsapp || "").replace(/\D/g, ""),
+        phoneDisplay: d.telefono || "",
+        email: d.email || "",
+        facebook: d.facebook || "",
+        messenger: d.messenger || "",
+        instagram: d.instagram || "",
+        instagramDM: d.instagramDM || "",
+        tiktok: d.tiktok || "",
+        mapsQuery: d.mapa || "Iquique, Chile",
+        googleMaps: d.googleMaps || "",
+        googleReview: d.googleResena || "",
+        prices,
       });
-    } else {
-      el.textContent = val;
-    }
-    return true;
-  };
+      return window.JL_CONFIG;
+    });
+  const DICT = window.JL_I18N || { es: {}, en: {} };
+  const LANGS = ["es", "en"];
+  const page = document.documentElement.dataset.page || "index";
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 
-  const getPageKey = () => {
+  // ---------- Idioma ----------
+  function detectLang() {
+    const fromUrl = new URLSearchParams(location.search).get("lang");
+    if (LANGS.includes(fromUrl)) return fromUrl;
     try {
-      const file = (location.pathname.split("/").pop() || "index.html").toLowerCase();
-      return (file.replace(".html", "") || "index");
-    } catch (_) {
-      return "index";
-    }
-  };
+      const saved = localStorage.getItem("jl_lang");
+      if (LANGS.includes(saved)) return saved;
+    } catch (_) {}
+    return (navigator.language || "es").toLowerCase().startsWith("es") ? "es" : "en";
+  }
 
-  // ---- Traducciones ----
-  const I18N = {
-    common: {
-      es: {
-        navInicio: "Inicio",
-        navAbout: "Sobre Nosotros",
-        navActivities: "Actividades",
-        navGallery: "Galería",
-        navContact: "Contacto",
-        footerText: "© 2025 Jallalla Turismo Aventura - Iquique, Chile",
-        footerFirma: "Sitio desarrollado por Fabi",
-      },
-      en: {
-        navInicio: "Home",
-        navAbout: "About Us",
-        navActivities: "Activities",
-        navGallery: "Gallery",
-        navContact: "Contact Us",
-        footerText: "© 2025 Jallalla Adventure Tourism - Iquique, Chile",
-        footerFirma: "Site developed by Fabi",
-      },
-      fr: {
-        navInicio: "Accueil",
-        navAbout: "À Propos",
-        navActivities: "Activités",
-        navGallery: "Galerie",
-        navContact: "Contact",
-        footerText: "© 2025 Jallalla Tourisme Aventure - Iquique, Chili",
-        footerFirma: "Site développé par Fabi",
-      },
-      pt: {
-        navInicio: "Início",
-        navAbout: "Sobre Nós",
-        navActivities: "Atividades",
-        navGallery: "Galeria",
-        navContact: "Contato",
-        footerText: "© 2025 Jallalla Turismo de Aventura - Iquique, Chile",
-        footerFirma: "Site desenvolvido por Fabi",
-      },
-      de: {
-        navInicio: "Startseite",
-        navAbout: "Über Uns",
-        navActivities: "Aktivitäten",
-        navGallery: "Galerie",
-        navContact: "Kontakt",
-        footerText: "© 2025 Jallalla Abenteuertourismus – Iquique, Chile",
-        footerFirma: "Seite entwickelt von Fabi",
-      },
-    },
+  let lang = detectLang();
 
-    pages: {
-      // -------------------
-      // HOME / INDEX
-      // -------------------
-      index: {
-        es: {
-          pageTitle: "Inicio - Jallalla Turismo Aventura",
-          title: "Bienvenidos a Jallalla Turismo Aventura",
-          desc1: "Descubre Iquique y sus alrededores con nuestras emocionantes actividades al aire libre.",
-          desc2: "Desde deportes de aventura hasta experiencias relajantes en la playa, tenemos algo para todos.",
-          desc3: "Explora, disfruta y crea recuerdos inolvidables con nuestro equipo de expertos guías.",
-        },
-        en: {
-          pageTitle: "Home - Jallalla Adventure Tourism",
-          title: "Welcome to Jallalla Adventure Tourism",
-          desc1: "Discover Iquique and its surroundings with our exciting outdoor activities.",
-          desc2: "From adventure sports to relaxing beach experiences, we have something for everyone.",
-          desc3: "Explore, enjoy, and create unforgettable memories with our team of expert guides.",
-        },
-        fr: {
-          pageTitle: "Accueil - Jallalla Tourisme Aventure",
-          title: "Bienvenue chez Jallalla Tourisme Aventure",
-          desc1: "Découvrez Iquique et ses environs avec nos activités de plein air palpitantes.",
-          desc2: "Des sports d’aventure aux moments de détente sur la plage, il y en a pour tous.",
-          desc3: "Explorez, profitez et créez des souvenirs inoubliables avec notre équipe de guides experts.",
-        },
-        pt: {
-          pageTitle: "Início - Jallalla Turismo de Aventura",
-          title: "Bem-vindos à Jallalla Turismo de Aventura",
-          desc1: "Descubra Iquique e arredores com nossas emocionantes atividades ao ar livre.",
-          desc2: "De esportes de aventura a experiências relaxantes na praia, temos algo para todos.",
-          desc3: "Explore, aproveite e crie memórias inesquecíveis com nossa equipe de guias especialistas.",
-        },
-        de: {
-          pageTitle: "Startseite - Jallalla Abenteuertourismus",
-          title: "Willkommen bei Jallalla Abenteuertourismus",
-          desc1: "Entdecken Sie Iquique und Umgebung mit unseren spannenden Outdoor-Aktivitäten.",
-          desc2: "Von Abenteuersport bis zu entspannten Strandmomenten – für jeden ist etwas dabei.",
-          desc3: "Entdecken, genießen und schaffen Sie unvergessliche Erinnerungen mit unserem Team aus erfahrenen Guides.",
-        },
-      },
+  function t(key, vars) {
+    let s = (DICT[lang] && DICT[lang][key]) ?? (DICT.es && DICT.es[key]) ?? key;
+    if (vars) Object.keys(vars).forEach((k) => { s = s.split("{" + k + "}").join(vars[k]); });
+    return s.replace("{y}", new Date().getFullYear());
+  }
 
-      // -------------------
-      // ABOUT
-      // -------------------
-      about: {
-        es: {
-          pageTitle: "Sobre Nosotros - Jallalla Turismo Aventura",
-          title: "Sobre Nosotros",
-          desc1: "En Jallalla Turismo Aventura nos apasiona brindar experiencias únicas en Iquique y sus alrededores. Nuestro equipo está formado por guías expertos en deportes de aventura y actividades al aire libre.",
-          desc2: "Nos preocupamos por la seguridad, la diversión y la conexión con la naturaleza, ofreciendo experiencias memorables para toda la familia.",
-          desc3: "Desde sandboard en el Cerro Dragón hasta parapente sobre la ciudad, cada actividad está diseñada para que disfrutes al máximo de la aventura y la belleza de nuestra región.",
-        },
-        en: {
-          pageTitle: "About Us - Jallalla Adventure Tourism",
-          title: "About Us",
-          desc1: "At Jallalla Adventure Tourism, we love creating unique experiences in Iquique and its surroundings. Our team is made up of expert guides in outdoor and adventure sports.",
-          desc2: "We focus on safety, fun, and nature, offering memorable experiences for the whole family.",
-          desc3: "From sandboarding at Cerro Dragón to paragliding over the city, every activity is designed to help you enjoy the adventure and the beauty of our region.",
-        },
-        fr: {
-          pageTitle: "À Propos - Jallalla Tourisme Aventure",
-          title: "À Propos",
-          desc1: "Chez Jallalla Tourisme Aventure, nous proposons des expériences uniques à Iquique et ses environs. Notre équipe est composée de guides experts en activités de plein air.",
-          desc2: "Nous privilégions la sécurité, le plaisir et le lien avec la nature, pour des expériences mémorables en famille.",
-          desc3: "Du sandboard au Cerro Dragón au parapente au-dessus de la ville, chaque activité est pensée pour profiter au maximum de l’aventure et de la beauté de la région.",
-        },
-        pt: {
-          pageTitle: "Sobre Nós - Jallalla Turismo de Aventura",
-          title: "Sobre Nós",
-          desc1: "Na Jallalla Turismo de Aventura oferecemos experiências únicas em Iquique e arredores. Nossa equipe é formada por guias especialistas em atividades ao ar livre.",
-          desc2: "Priorizamos segurança, diversão e conexão com a natureza, com experiências memoráveis para toda a família.",
-          desc3: "Do sandboard no Cerro Dragón ao parapente sobre a cidade, cada atividade é feita para você aproveitar a aventura e a beleza da região.",
-        },
-        de: {
-          pageTitle: "Über Uns - Jallalla Abenteuertourismus",
-          title: "Über Uns",
-          desc1: "Bei Jallalla Abenteuertourismus bieten wir einzigartige Erlebnisse in Iquique und Umgebung. Unser Team besteht aus erfahrenen Guides für Outdoor- und Abenteuersport.",
-          desc2: "Wir legen Wert auf Sicherheit, Spaß und Naturverbundenheit – für unvergessliche Erlebnisse mit der ganzen Familie.",
-          desc3: "Vom Sandboarding am Cerro Dragón bis zum Paragliding über der Stadt – jede Aktivität ist auf maximalen Genuss der Abenteuer und der Landschaft ausgelegt.",
-        },
-      },
+  function applyLang() {
+    document.documentElement.lang = lang;
+    const title = DICT[lang] && DICT[lang][page + ".metaTitle"];
+    if (title) document.title = title;
 
-      // -------------------
-      // ACTIVITIES
-      // -------------------
-      activities: {
-        es: {
-          pageTitle: "Actividades - Jallalla Turismo Aventura",
-          title: "Nuestras Actividades",
-          desc1: [
-            "🏂 Sandboard en el Cerro Dragón",
-            "🪂 Parapente sobre Iquique",
-            "🤿 Buceo y Snorkel",
-            "🧗 Rappel y Trekking",
-            "🧘 Yoga en la playa",
-          ],
-        },
-        en: {
-          pageTitle: "Activities - Jallalla Adventure Tourism",
-          title: "Our Activities",
-          desc1: [
-            "🏂 Sandboarding at Cerro Dragón",
-            "🪂 Paragliding over Iquique",
-            "🤿 Diving & Snorkeling",
-            "🧗 Rappelling & Trekking",
-            "🧘 Beach Yoga",
-          ],
-        },
-        fr: {
-          pageTitle: "Activités - Jallalla Tourisme Aventure",
-          title: "Nos Activités",
-          desc1: [
-            "🏂 Sandboard au Cerro Dragón",
-            "🪂 Parapente au-dessus d’Iquique",
-            "🤿 Plongée & Snorkeling",
-            "🧗 Rappel & Randonnée",
-            "🧘 Yoga sur la plage",
-          ],
-        },
-        pt: {
-          pageTitle: "Atividades - Jallalla Turismo de Aventura",
-          title: "Nossas Atividades",
-          desc1: [
-            "🏂 Sandboard no Cerro Dragón",
-            "🪂 Parapente sobre Iquique",
-            "🤿 Mergulho e Snorkel",
-            "🧗 Rapel e Trekking",
-            "🧘 Yoga na praia",
-          ],
-        },
-        de: {
-          pageTitle: "Aktivitäten - Jallalla Abenteuertourismus",
-          title: "Unsere Aktivitäten",
-          desc1: [
-            "🏂 Sandboarding am Cerro Dragón",
-            "🪂 Paragliding über Iquique",
-            "🤿 Tauchen & Schnorcheln",
-            "🧗 Abseilen & Trekking",
-            "🧘 Yoga am Strand",
-          ],
-        },
-      },
+    $$("[data-t]").forEach((el) => { el.textContent = t(el.dataset.t); });
+    $$("[data-t-alt]").forEach((el) => { el.alt = t(el.dataset.tAlt); });
+    $$("[data-t-aria]").forEach((el) => { el.setAttribute("aria-label", t(el.dataset.tAria)); });
+    $$("[data-t-ph]").forEach((el) => { el.placeholder = t(el.dataset.tPh); });
+    $$("[data-t-title]").forEach((el) => { el.title = t(el.dataset.tTitle); });
+    // Textos que vienen con su traducción en el mismo HTML (ej: galería)
+    const L = lang === "en" ? "En" : "Es";
+    $$("[data-es]").forEach((el) => { el.textContent = el.dataset[lang] || el.dataset.es; });
+    $$("[data-alt-es]").forEach((el) => { el.alt = el.dataset["alt" + L] || el.dataset.altEs; });
 
-      // -------------------
-      // GALLERY
-      // -------------------
-      gallery: {
-        es: { pageTitle: "Galería - Jallalla Turismo Aventura", title: "Nuestra Galería" },
-        en: { pageTitle: "Gallery - Jallalla Adventure Tourism", title: "Our Gallery" },
-        fr: { pageTitle: "Galerie - Jallalla Tourisme Aventure", title: "Notre Galerie" },
-        pt: { pageTitle: "Galeria - Jallalla Turismo de Aventura", title: "Nossa Galeria" },
-        de: { pageTitle: "Galerie - Jallalla Abenteuertourismus", title: "Unsere Galerie" },
-      },
+    const sel = $("#language");
+    if (sel) sel.value = lang;
 
-      // -------------------
-      // CONTACT
-      // -------------------
-      contact: {
-        es: { pageTitle: "Contacto - Jallalla Turismo Aventura", title: "Contacto" },
-        en: { pageTitle: "Contact - Jallalla Adventure Tourism", title: "Contact Us" },
-        fr: { pageTitle: "Contact - Jallalla Tourisme Aventure", title: "Contact" },
-        pt: { pageTitle: "Contato - Jallalla Turismo de Aventura", title: "Contato" },
-        de: { pageTitle: "Kontakt - Jallalla Abenteuertourismus", title: "Kontakt" },
-      },
-    },
-  };
+    applyPrices();
+    applyWhatsapp();
 
-  // ---- Aplicar traducciones ----
-  function applyI18n(lang) {
-    const page = getPageKey();
-    const safeLang = I18N.common[lang] ? lang : "es";
+    window.jlLang = lang;
+    document.dispatchEvent(new CustomEvent("jl:lang", { detail: lang }));
+  }
 
-    // Comunes (navbar/footer)
-    Object.entries(I18N.common[safeLang]).forEach(([id, text]) => setText(id, text));
+  window.jlT = t;
+  window.jlLang = lang;
 
-    // Página actual
-    const pageDict = (I18N.pages[page] && I18N.pages[page][safeLang]) || {};
-    Object.entries(pageDict).forEach(([id, text]) => {
-      if (id === "pageTitle" && typeof text === "string") {
-        document.title = text; 
-      } else {
-        setText(id, text);
+  // ---------- Precios ----------
+  function applyPrices() {
+    const fmt = new Intl.NumberFormat("es-CL", { style: "currency", currency: "CLP", maximumFractionDigits: 0 });
+    $$("[data-price]").forEach((el) => {
+      const value = Number((cfg().prices || {})[el.dataset.price]) || 0;
+      el.textContent = value ? t("price.from", { p: fmt.format(value) }) : t("price.ask");
+    });
+  }
+
+  // ---------- WhatsApp y redes ----------
+  const waUrl = (text) => `https://wa.me/${cfg().whatsapp}?text=${encodeURIComponent(text)}`;
+
+  function applyWhatsapp() {
+    if (!cfg().whatsapp) return;
+    $$("[data-wa]").forEach((a) => {
+      const act = a.dataset.wa;
+      const text = act ? t("wa.msgActivity", { a: t("act." + act + ".title") }) : t("wa.msgGeneral");
+      a.href = waUrl(text);
+      a.target = "_blank";
+      a.rel = "noopener";
+    });
+  }
+
+  function applyLinks() {
+    const CFG = cfg();
+    const links = {
+      facebook: CFG.facebook,
+      messenger: CFG.messenger,
+      instagram: CFG.instagram,
+      instagramDM: CFG.instagramDM,
+      tiktok: CFG.tiktok,
+      email: CFG.email ? "mailto:" + CFG.email : "",
+      phone: CFG.phoneDisplay ? "tel:+" + CFG.whatsapp : "",
+      maps: CFG.googleMaps || "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(CFG.mapsQuery || "Iquique, Chile"),
+      googleMaps: CFG.googleMaps,
+      googleReview: CFG.googleReview,
+    };
+    $$("[data-link]").forEach((a) => {
+      const url = links[a.dataset.link];
+      (a.closest("[data-link-wrap]") || a).hidden = !url;
+      if (!url) return;
+      a.href = url;
+      if (/^https?:/.test(url)) { a.target = "_blank"; a.rel = "noopener"; }
+    });
+    $$("[data-config]").forEach((el) => { el.textContent = CFG[el.dataset.config] || ""; });
+  }
+
+  // ---------- Menú móvil ----------
+  function initMenu() {
+    const btn = $("#menuToggle");
+    const nav = $("#navLinks");
+    if (!btn || !nav) return;
+    const set = (open) => {
+      nav.classList.toggle("open", open);
+      btn.setAttribute("aria-expanded", String(open));
+      btn.querySelector("i").className = open ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+    };
+    btn.addEventListener("click", () => set(!nav.classList.contains("open")));
+    nav.addEventListener("click", (e) => { if (e.target.closest("a")) set(false); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") set(false); });
+    document.addEventListener("click", (e) => {
+      if (nav.classList.contains("open") && !nav.contains(e.target) && !btn.contains(e.target)) set(false);
+    });
+  }
+
+  // ---------- Cookies / consentimiento ----------
+  const CONSENT_KEY = "jl_consent"; // "all" | "necessary"
+  const getConsent = () => { try { return localStorage.getItem(CONSENT_KEY); } catch (_) { return null; } };
+
+  function setConsent(value) {
+    try { localStorage.setItem(CONSENT_KEY, value); } catch (_) {}
+    $("#cookieBanner")?.remove();
+    applyConsent();
+    document.dispatchEvent(new CustomEvent("jl:consent", { detail: value }));
+  }
+  window.jlConsent = getConsent;
+
+  function showCookieBanner() {
+    if ($("#cookieBanner")) return;
+    const box = document.createElement("div");
+    box.className = "cookie-banner";
+    box.id = "cookieBanner";
+    box.setAttribute("role", "dialog");
+    box.setAttribute("aria-live", "polite");
+    box.setAttribute("aria-labelledby", "cookieTitle");
+    box.innerHTML = `
+      <h2 id="cookieTitle"><i class="fa-solid fa-cookie-bite" aria-hidden="true"></i> <span data-t="cookies.title"></span></h2>
+      <p><span data-t="cookies.text"></span> <a href="privacidad.html" data-t="cookies.more"></a></p>
+      <div class="cookie-actions">
+        <button type="button" class="btn btn-dark" data-consent="all" data-t="cookies.accept"></button>
+        <button type="button" class="btn btn-light" data-consent="necessary" data-t="cookies.reject"></button>
+      </div>`;
+    document.body.appendChild(box);
+    $$("[data-t]", box).forEach((el) => { el.textContent = t(el.dataset.t); });
+    $$("[data-consent]", box).forEach((b) => b.addEventListener("click", () => setConsent(b.dataset.consent)));
+  }
+
+  // Mapas de Google: solo se cargan con consentimiento
+  function applyConsent() {
+    const ok = getConsent() === "all";
+    $$("[data-map]").forEach((box) => {
+      if (ok && !box.querySelector("iframe")) {
+        const q = encodeURIComponent(cfg().mapsQuery || "Iquique, Chile");
+        box.innerHTML = `<iframe src="https://www.google.com/maps?q=${q}&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Maps"></iframe>`;
       }
     });
-
-    // lang en <html>
-    try { document.documentElement.setAttribute("lang", safeLang); } catch (_) {}
   }
 
-  // ---- Inicializar ----
-  function initLang() {
-    const select = $("language");
-    const browserLang = (navigator.language || "es").slice(0, 2).toLowerCase();
-    const initial = localStorage.getItem("lang") || (I18N.common[browserLang] ? browserLang : "es");
+  function initConsent() {
+    $$("[data-map]").forEach((box) => {
+      box.innerHTML = `
+        <div class="map-placeholder">
+          <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
+          <p data-t="map.blocked">${t("map.blocked")}</p>
+          <button type="button" class="btn btn-dark" data-t="map.load">${t("map.load")}</button>
+        </div>`;
+      box.querySelector("button").addEventListener("click", () => setConsent("all"));
+    });
+    $$("[data-cookie-prefs]").forEach((b) => b.addEventListener("click", showCookieBanner));
+    if (!getConsent()) showCookieBanner();
+    applyConsent();
+  }
 
-    if (select) {
-      select.value = initial;
-      select.addEventListener("change", (e) => {
-        const lang = e.target.value;
-        localStorage.setItem("lang", lang);
-        applyI18n(lang);
+  // ---------- Formulario de contacto → WhatsApp ----------
+  function initContactForm() {
+    const form = $("#waForm");
+    if (!form) return;
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = form.name.value.trim();
+      const err = $("#waFormError");
+      if (!name) { err.hidden = false; form.name.focus(); return; }
+      err.hidden = true;
+
+      const act = form.activity.value;
+      const date = form.date.value;
+      const people = form.people.value;
+      const msg = form.message.value.trim();
+
+      const lines = [t("contact.waHello", { n: name })];
+      if (act) lines.push(t("contact.waAct", { a: act === "otra" ? t("contact.fOther") : t("act." + act + ".title") }));
+      if (date) {
+        const d = new Date(date + "T12:00:00");
+        lines.push(t("contact.waDate", { d: d.toLocaleDateString(lang === "es" ? "es-CL" : "en-US", { day: "numeric", month: "long", year: "numeric" }) }));
+      }
+      if (people) lines.push(t("contact.waPeople", { p: people }));
+      if (msg) lines.push("", msg);
+
+      window.open(waUrl(lines.join("\n")), "_blank", "noopener");
+    });
+
+    const dateInput = form.date;
+    if (dateInput) dateInput.min = new Date().toISOString().slice(0, 10);
+  }
+
+  // ---------- Contadores (Nosotros) ----------
+  function initCounters() {
+    const nums = $$("[data-count]");
+    if (!nums.length || !("IntersectionObserver" in window)) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = parseFloat(el.dataset.count);
+        const suffix = el.dataset.suffix || "";
+        const start = performance.now();
+        const step = (now) => {
+          const p = Math.min((now - start) / 900, 1);
+          el.textContent = Math.floor(target * p).toLocaleString("es-CL") + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+        io.unobserve(el);
       });
-    }
-
-    applyI18n(initial);
+    }, { threshold: 0.4 });
+    nums.forEach((n) => io.observe(n));
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initLang);
-  } else {
-    initLang();
+  // ---------- Botón flotante de WhatsApp ----------
+  function initFloat() {
+    if (page === "404") return;
+    const a = document.createElement("a");
+    a.className = "wa-float";
+    a.dataset.wa = "";
+    a.dataset.tAria = "wa.float";
+    a.innerHTML = '<i class="fa-brands fa-whatsapp" aria-hidden="true"></i>';
+    document.body.appendChild(a);
   }
+
+  // ---------- Inicio ----------
+  function init() {
+    initFloat();
+    initMenu();
+    initContactForm();
+    initCounters();
+
+    $("#language")?.addEventListener("change", (e) => {
+      lang = LANGS.includes(e.target.value) ? e.target.value : "es";
+      try { localStorage.setItem("jl_lang", lang); } catch (_) {}
+      applyLang();
+    });
+
+    applyLang();
+    // Enlaces, precios, WhatsApp y mapa cuando llegan los datos del negocio
+    window.JL_READY.then(() => {
+      applyLinks();
+      applyPrices();
+      applyWhatsapp();
+      initConsent();
+    });
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
 })();

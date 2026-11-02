@@ -1,0 +1,76 @@
+{
+  "fotos": [
+    {
+      "imagen": "img/gallery/full/san5.webp",
+      "categoria": "sandboard",
+      "es": "Grupo en la cima al atardecer",
+      "en": "Group on the summit at sunset"
+    },
+    {
+      "imagen": "img/gallery/full/parapente.webp",
+      "categoria": "parapente",
+      "es": "Vuelo en parapente sobre Iquique",
+      "en": "Paragliding over Iquique"
+    },
+    {
+      "imagen": "img/gallery/full/san2.webp",
+      "categoria": "sandboard",
+      "es": "Tablas arriba frente a la ciudad",
+      "en": "Boards up facing the city"
+    },
+    {
+      "imagen": "img/gallery/full/escalar.webp",
+      "categoria": "escalada",
+      "es": "Escalada en roca frente al mar",
+      "en": "Rock climbing by the sea"
+    },
+    {
+      "imagen": "img/gallery/full/yoga.webp",
+      "categoria": "yoga",
+      "es": "Yoga en la playa al atardecer",
+      "en": "Beach yoga at sunset"
+    },
+    {
+      "imagen": "img/gallery/full/san1.webp",
+      "categoria": "sandboard",
+      "es": "Sandboard en el Cerro Dragón",
+      "en": "Sandboarding at Cerro Dragón"
+    },
+    {
+      "imagen": "img/gallery/full/buseo.webp",
+      "categoria": "buceo",
+      "es": "Buceo en la costa de Iquique",
+      "en": "Diving off the Iquique coast"
+    },
+    {
+      "imagen": "img/gallery/full/san3.webp",
+      "categoria": "sandboard",
+      "es": "Arriba de la duna con la tabla",
+      "en": "On top of the dune with the board"
+    },
+    {
+      "imagen": "img/gallery/full/iquique.webp",
+      "categoria": "iquique",
+      "es": "Iquique de noche",
+      "en": "Iquique by night"
+    },
+    {
+      "imagen": "img/gallery/full/san4.webp",
+      "categoria": "sandboard",
+      "es": "Sandboard en familia",
+      "en": "Family sandboarding"
+    },
+    {
+      "imagen": "img/gallery/full/sandboard.webp",
+      "categoria": "sandboard",
+      "es": "Bajando la duna al atardecer",
+      "en": "Riding down the dune at sunset"
+    },
+    {
+      "imagen": "img/gallery/full/san6.webp",
+      "categoria": "sandboard",
+      "es": "Listo para bajar el Cerro Dragón",
+      "en": "Ready to ride Cerro Dragón"
+    }
+  ]
+}

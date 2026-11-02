@@ -1,0 +1,26 @@
+{
+  "sandboard": {
+    "es": "Sandboard",
+    "en": "Sandboarding"
+  },
+  "parapente": {
+    "es": "Parapente",
+    "en": "Paragliding"
+  },
+  "buceo": {
+    "es": "Buceo",
+    "en": "Diving"
+  },
+  "escalada": {
+    "es": "Escalada",
+    "en": "Climbing"
+  },
+  "yoga": {
+    "es": "Yoga",
+    "en": "Yoga"
+  },
+  "iquique": {
+    "es": "Iquique",
+    "en": "Iquique"
+  }
+}

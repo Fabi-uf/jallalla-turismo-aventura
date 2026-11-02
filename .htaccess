@@ -1,0 +1,37 @@
+# Configuración para hostings Apache (cPanel). Si tu hosting no usa Apache, este archivo se ignora.
+
+ErrorDocument 404 /404.html
+
+# Forzar HTTPS (descomenta las 3 líneas cuando el certificado SSL esté activo)
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml application/manifest+json
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 6 months"
+  ExpiresByType image/jpeg "access plus 6 months"
+  ExpiresByType image/png "access plus 6 months"
+  ExpiresByType image/svg+xml "access plus 6 months"
+  ExpiresByType video/mp4 "access plus 6 months"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+AddType font/woff2 .woff2
+AddType image/webp .webp
+AddType application/manifest+json .webmanifest
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Bloquea acceso público a las herramientas internas
+RedirectMatch 404 ^/(tools|apps-script|fotos-nuevas)(/|$)
